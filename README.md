@@ -1,4 +1,4 @@
-# personal-site
+# test2
 
 ## Project setup
 ```
