@@ -1,79 +1,59 @@
 <template>
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center text-center fill-height">
-      <v-img
-        contain
-        height="300"
-        src="@/assets/logo.svg"
-      />
+      <!-- <v-img contain height="300" src="@/assets/logo.svg" />
 
       <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
 
       <h1 class="text-h2 font-weight-bold">Vuetify</h1>
 
-      <div class="py-14" />
+      <div class="py-14" /> -->
 
-      <v-row class="d-flex align-center justify-center">
-        <v-col cols="auto">
-          <v-btn
-            href="https://next.vuetifyjs.com/components/all/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-view-dashboard"
-              size="large"
-              start
-            />
 
-            Components
-          </v-btn>
-        </v-col>
 
-        <v-col cols="auto">
-          <v-btn
-            color="primary"
-            href="https://next.vuetifyjs.com/introduction/why-vuetify/#feature-guides"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            target="_blank"
-            variant="flat"
-          >
-            <v-icon
-              icon="mdi-speedometer"
-              size="large"
-              start
-            />
+      <v-row class="d-flex  justify-center">
+        <v-col lg="3">
+          <v-card class="elevation-5">
+            <v-card-item>
+              <v-card-title>
+                <div>
+                  <v-avatar size="90" class="elevation-2">
+                    <v-img :width="100" aspect-ratio="16/9" src="../assets/image1.png"></v-img>
+                  </v-avatar>
+                </div>
+                Dominik Pawlowski
+              </v-card-title>
 
-            Get Started
-          </v-btn>
-        </v-col>
+              <v-card-subtitle>Full-stack Developer</v-card-subtitle>
+            </v-card-item>
 
-        <v-col cols="auto">
-          <v-btn
-            href="https://community.vuetifyjs.com/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-account-group"
-              size="large"
-              start
-            />
+            <v-card-text>
+              WIP
+            </v-card-text>
 
-            Community
-          </v-btn>
+            <v-card-actions>
+              <v-btn>LinkedIn</v-btn>
+              <v-btn>GitHub</v-btn>
+            </v-card-actions>
+          </v-card>
         </v-col>
       </v-row>
     </v-responsive>
   </v-container>
 </template>
 
-<script setup>
-  //
+<script>
+export default {
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+
+  },
+  mounted() {
+
+  },
+};
 </script>
