@@ -12,7 +12,7 @@
 
 
       <v-row class="d-flex  justify-center">
-        <v-col lg="3">
+        <v-col lg="4" xl="2" md="6" sm="6" xs="6">
           <v-card class="elevation-5">
             <v-card-item>
               <v-card-title>
