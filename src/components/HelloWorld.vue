@@ -32,6 +32,16 @@
               Welsh Revenue Authority<br>
               Creation of in-house functionality to reduce reliance on third party suppliers
             </v-card-text>
+            <v-card-text class="text-left">
+              <div><i>Education</i></div>
+              Univesity of South Wales <i>2019-2024</i><br>
+              BSc (Hons) in Digital and Technology Solutions
+            </v-card-text>
+            <v-card-text class="text-left">
+              <div><i>Skills</i></div>
+              4 years of experience with Vue.js and Vuetify<br>
+              REST APIs written with C# and SQL Server
+            </v-card-text>
             <v-card-actions>
               <v-btn>LinkedIn</v-btn>
               <v-btn>GitHub</v-btn>
