@@ -27,10 +27,11 @@
               <v-card-subtitle>Full-stack Developer</v-card-subtitle>
             </v-card-item>
 
-            <v-card-text>
-              WIP
+            <v-card-text class="text-left">
+              <div><i>Employment</i></div>
+              Welsh Revenue Authority<br>
+              Creation of in-house functionality to reduce reliance on third party suppliers
             </v-card-text>
-
             <v-card-actions>
               <v-btn>LinkedIn</v-btn>
               <v-btn>GitHub</v-btn>
