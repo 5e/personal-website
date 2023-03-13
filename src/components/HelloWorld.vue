@@ -29,12 +29,12 @@
 
             <v-card-text class="text-left">
               <div><i>Employment</i></div>
-              Welsh Revenue Authority<br>
+              Welsh Revenue Authority <i>(2019-present)</i><br>
               Creation of in-house functionality to reduce reliance on third party suppliers
             </v-card-text>
             <v-card-text class="text-left">
               <div><i>Education</i></div>
-              Univesity of South Wales <i>2019-2024</i><br>
+              Univesity of South Wales <i>(2019-2024)</i><br>
               BSc (Hons) in Digital and Technology Solutions
             </v-card-text>
             <v-card-text class="text-left">
