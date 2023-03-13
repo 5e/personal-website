@@ -41,6 +41,7 @@
               <div><i>Skills</i></div>
               4 years of experience with Vue.js and Vuetify<br>
               REST APIs written with C# and SQL Server
+              <br>Experience in Python in numerous side projects
             </v-card-text>
             <v-card-actions>
               <v-btn>LinkedIn</v-btn>
