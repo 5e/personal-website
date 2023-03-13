@@ -30,7 +30,7 @@
             <v-card-text class="text-left">
               <div><i>Employment</i></div>
               Welsh Revenue Authority <i>(2019-present)</i><br>
-              Creation of in-house functionality to reduce reliance on third party suppliers
+              Designing, building and implementing in-house solutions to reduce reliance on third party suppliers
             </v-card-text>
             <v-card-text class="text-left">
               <div><i>Education</i></div>
