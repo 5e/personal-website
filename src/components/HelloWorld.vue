@@ -59,8 +59,7 @@
 
             </v-card-text>
             <v-card-actions>
-              <v-btn>LinkedIn</v-btn>
-              <v-btn>GitHub</v-btn>
+              <v-btn target="_blank" href="https://www.linkedin.com/in/dominik-p-45036a269/">LinkedIn</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
