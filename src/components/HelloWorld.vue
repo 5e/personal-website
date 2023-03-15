@@ -1,6 +1,6 @@
 <template>
   <v-container class="fill-height">
-    <v-responsive class="d-flex align-center text-center fill-height">
+    <v-responsive class="d-flex align-center fill-height">
       <!-- <v-img contain height="300" src="@/assets/logo.svg" />
 
       <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
@@ -14,7 +14,7 @@
       <v-row class="d-flex  justify-center">
         <v-col lg="6" xl="3" md="7" sm="8" xs="6">
           <v-card class="elevation-5">
-            <v-card-item>
+            <v-card-item class="text-center">
               <v-card-title>
                 <div>
                   <v-avatar size="90" class="elevation-2">
@@ -27,29 +27,36 @@
               <v-card-subtitle>Full-stack Developer</v-card-subtitle>
             </v-card-item>
 
-            <v-card-text class="text-left">
-              <div><i>Employment</i></div>
+            <v-card-text>
+              <div><b>Employment</b></div>
               Welsh Revenue Authority <i>(2019 - present)</i><br>
               End-to-end development on in-house solutions consisting of designing, building and implementing web
               applications
               to
               reduce reliance on third party suppliers.
             </v-card-text>
-            <v-card-text class="text-left">
-              <div><i>Education</i></div>
+            <v-card-text>
+              <div><b>Education</b></div>
               University of South Wales <i>(2019 - 2024)</i><br>
               BSc (Hons) in Digital and Technology Solutions
             </v-card-text>
-            <v-card-text class="text-left">
-              <div><i>Skills</i></div>
+            <v-card-text>
+              <div><b>Skills</b></div>
+              <v-row>
+                <v-col cols="6">
+                  4 years of experience building full stack applications using Vue.js, C# and Microsoft SQL
+                  Server
+                  <br>Experience in Python in numerous side projects
+                </v-col>
+                <v-col cols="6" class="pt-0">
+                  <v-list density="compact" class="pt-0">
+                    <v-list-item v-for="item in items" :key="item.text" :title="item.text"
+                      :append-avatar="item.icon"></v-list-item>
+                  </v-list>
+                </v-col>
+              </v-row>
 
-              <v-list>
-                <v-list-item v-for="item in items" :key="item.text" :title="item.text"
-                  :prepend-avatar="item.icon"></v-list-item>
-              </v-list>
-              4 years of experience building full stack applications using Vue.js, C# and Microsoft SQL
-              Server
-              <br>Experience in Python in numerous side projects
+
             </v-card-text>
             <v-card-actions>
               <v-btn>LinkedIn</v-btn>
