@@ -34,13 +34,18 @@
             </v-card-text>
             <v-card-text class="text-left">
               <div><i>Education</i></div>
-              Univesity of South Wales <i>(2019-2024)</i><br>
+              University of South Wales <i>(2019-2024)</i><br>
               BSc (Hons) in Digital and Technology Solutions
             </v-card-text>
             <v-card-text class="text-left">
               <div><i>Skills</i></div>
-              4 years of experience with Vue.js and Vuetify<br>
-              REST APIs written with C# and SQL Server
+
+              <v-list>
+                <v-list-item v-for="item in items" :key="item.text" :title="item.text"
+                  :prepend-avatar="item.icon"></v-list-item>
+              </v-list>
+              4 years of experience building full stack applications using Vue.js, C# and Microsoft SQL
+              Server
               <br>Experience in Python in numerous side projects
             </v-card-text>
             <v-card-actions>
@@ -58,7 +63,14 @@
 export default {
   data() {
     return {
-
+      items: [
+        { text: 'Vue.js', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png' },
+        { text: 'Vuetify', icon: 'https://iconape.com/wp-content/png_logo_vector/vuetify.png' },
+        { text: 'C#', icon: 'https://e7.pngegg.com/pngimages/328/221/png-clipart-c-programming-language-logo-microsoft-visual-studio-net-framework-javascript-icon-purple-logo.png' },
+        { text: 'SQL', icon: 'https://cdn-icons-png.flaticon.com/512/4299/4299956.png' },
+        { text: 'REST APIs', icon: 'https://toppng.com/uploads/preview/rest-api-icon-rest-api-icon-11553510526uqs2ynyga2.png' },
+        { text: 'Python', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png' },
+      ],
     };
   },
   methods: {
