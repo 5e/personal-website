@@ -46,7 +46,7 @@
                 <v-col cols="6">
                   4 years of experience building full stack applications using Vue.js, C# and Microsoft SQL
                   Server
-                  <br>Experience in Python in numerous side projects
+                  <br><br>Experience in Python in numerous side projects
                 </v-col>
                 <v-col cols="6" class="pt-0">
                   <v-list density="compact" class="pt-0">
