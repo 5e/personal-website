@@ -8,11 +8,7 @@
               <v-card-title>
                 <div>
                   <v-avatar size="90" class="elevation-2">
-                    <v-img
-                      :width="100"
-                      aspect-ratio="16/9"
-                      src="../assets/image1.png"
-                    ></v-img>
+                    <v-img :width="100" aspect-ratio="16/9" src="../assets/image1.png"></v-img>
                   </v-avatar>
                 </div>
                 Dominik Pawlowski
@@ -45,23 +41,35 @@
                 </v-col>
                 <v-col cols="6" class="pt-0">
                   <v-list density="compact" class="pt-0">
-                    <v-list-item
-                      v-for="item in items"
-                      :key="item.text"
-                      :title="item.text"
-                      :append-avatar="item.icon"
-                    ></v-list-item>
+                    <v-list-item v-for="item in items" :key="item.text" :title="item.text"
+                      :append-avatar="item.icon"></v-list-item>
                   </v-list>
                 </v-col>
+
               </v-row>
+
             </v-card-text>
             <v-card-actions>
-              <v-btn
-                target="_blank"
-                href="https://www.linkedin.com/in/dominik-p-45036a269/"
-                >LinkedIn</v-btn
-              >
+
+              <v-scroll-y-transition mode="out-in">
+                <div class="mr-2" v-if="spotifyStatus != null">
+                  <v-icon style="color: #1DB954;" icon="mdi-spotify"></v-icon>
+                </div>
+              </v-scroll-y-transition>
+              <v-scroll-y-transition mode="out-in">
+                <span v-if="spotifyStatus != null" :key="spotifyStatus.item.uri">{{ spotifyStatus.item.name
+                }}
+                  <br>
+                  <span class="text-caption">{{ allArtists }}</span>
+
+                </span>
+              </v-scroll-y-transition>
+              <v-spacer></v-spacer>
+              <v-btn target="_blank" href="https://www.linkedin.com/in/dominik-p-45036a269/">LinkedIn</v-btn>
+
+
             </v-card-actions>
+
           </v-card>
         </v-col>
       </v-row>
@@ -70,9 +78,12 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
+      spotifyStatus: null,
       items: [
         {
           text: "Vue.js",
@@ -101,8 +112,37 @@ export default {
       ],
     };
   },
-  methods: {},
-  mounted() {},
+  computed: {
+    allArtists() {
+      var total = "";
+      this.spotifyStatus.item.artists.forEach(artist => {
+        total += artist.name;
+        total += ", "
+      });
+      total = total.slice(0, -2);
+      return total;
+    }
+  },
+  methods: {
+    getSpotifyStatus() {
+      this.recipesLoading = true;
+      axios.get('https://cloudflare-spotify.5egt.workers.dev/song')
+        .then((response) => {
+          if (response.status != 204) {
+            this.spotifyStatus = response.data;
+          } else {
+            this.spotifyStatus = null;
+          }
+        })
+    },
+  },
+  mounted() {
+    this.getSpotifyStatus();
+
+    const timer = setInterval(() => {
+      this.getSpotifyStatus();
+    }, 5000);
+  },
 };
 </script>
 
