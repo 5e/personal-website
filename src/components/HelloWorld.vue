@@ -57,11 +57,11 @@
                 </div>
               </v-scroll-y-transition>
               <v-scroll-y-transition mode="out-in">
-                <span v-if="spotifyStatus != null" :key="spotifyStatus.item.uri">{{ spotifyStatus.item.name
-                }}
+                <span style="line-height: 18px; font-size: 0.875rem; font-weight: 400;" v-if="spotifyStatus != null"
+                  :key="spotifyStatus.item.uri">{{
+                    spotifyStatus.item.name }}
                   <br>
-                  <span class="text-caption">{{ allArtists }}</span>
-
+                  <span style="font-size: 0.75rem; font-weight: 400;">{{ allArtists }}</span>
                 </span>
               </v-scroll-y-transition>
               <v-spacer></v-spacer>
