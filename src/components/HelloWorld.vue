@@ -32,15 +32,20 @@
               <div><b>Education</b></div>
               University of South Wales <i>(2019 - 2024)</i><br />
               BSc (Hons) in Digital and Technology Solutions
+              <div class="mb-2"></div>
+              Coleg Gwent <i>(2016 - 2019)</i><br />
+              A-Levels in Maths, Further Maths, Computer Science
             </v-card-text>
             <v-card-text>
               <div><b>Experience</b></div>
               <v-row>
                 <v-col cols="12">
-                  4 years of experience building full stack applications using
-                  Vue.js, C# and Microsoft SQL Server
-                  <br />Experience with Python in numerous side projects
-                  <br />Experience with agile/scrum development methodologies
+                  4 years of experience working in an agile/scrum environment
+                  building full stack applications using Vue.js, C# and
+                  Microsoft SQL Server. Experience in using cloud platforms such
+                  as Amazon AWS, Microsoft Azure and recently Cloudflare Workers
+                  to create serverless functions. In addition to this,
+                  experience in Python from personal side-projects.
                 </v-col>
               </v-row>
             </v-card-text>
@@ -128,7 +133,7 @@ export default {
           description: "4 years",
         },
         {
-          text: ".NET C#",
+          text: "C#",
           icon: "mdi-dot-net",
           description: "4 years",
         },
@@ -183,9 +188,9 @@ export default {
   mounted() {
     this.getSpotifyStatus();
 
-    // const timer = setInterval(() => {
-    //   this.getSpotifyStatus();
-    // }, 5000);
+    const timer = setInterval(() => {
+      this.getSpotifyStatus();
+    }, 5000);
   },
 };
 </script>
