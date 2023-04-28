@@ -43,8 +43,9 @@
                   4 years of experience working in an agile/scrum environment
                   building full stack applications using Vue.js, C# and
                   Microsoft SQL Server. Experience in using cloud platforms such
-                  as. In addition to this, experience in Python from personal
-                  side-projects.
+                  as Amazon AWS, Microsoft Azure and recently Cloudflare Workers
+                  to create serverless functions. In addition to this,
+                  experience in Python from personal side-projects.
                 </v-col>
               </v-row>
             </v-card-text>
