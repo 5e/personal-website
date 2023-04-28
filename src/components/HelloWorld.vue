@@ -21,14 +21,14 @@
               <v-card-subtitle>Full-stack Developer</v-card-subtitle>
             </v-card-item>
 
-            <v-card-text>
+            <v-card-text class="pb-0">
               <div><b>Employment</b></div>
               Welsh Revenue Authority <i>(2019 - present)</i><br />
               End-to-end development on in-house solutions consisting of
               designing, building and implementing web applications to reduce
               reliance on third party suppliers.
             </v-card-text>
-            <v-card-text>
+            <v-card-text class="pb-0">
               <div><b>Education</b></div>
               University of South Wales <i>(2019 - 2024)</i><br />
               BSc (Hons) in Digital and Technology Solutions
@@ -36,16 +36,15 @@
               Coleg Gwent <i>(2016 - 2019)</i><br />
               A-Levels in Maths, Further Maths, Computer Science
             </v-card-text>
-            <v-card-text>
+            <v-card-text class="pb-0">
               <div><b>Experience</b></div>
               <v-row>
                 <v-col cols="12">
                   4 years of experience working in an agile/scrum environment
                   building full stack applications using Vue.js, C# and
                   Microsoft SQL Server. Experience in using cloud platforms such
-                  as Amazon AWS, Microsoft Azure and recently Cloudflare Workers
-                  to create serverless functions. In addition to this,
-                  experience in Python from personal side-projects.
+                  as. In addition to this, experience in Python from personal
+                  side-projects.
                 </v-col>
               </v-row>
             </v-card-text>
@@ -188,9 +187,9 @@ export default {
   mounted() {
     this.getSpotifyStatus();
 
-    const timer = setInterval(() => {
-      this.getSpotifyStatus();
-    }, 5000);
+    // const timer = setInterval(() => {
+    //   this.getSpotifyStatus();
+    // }, 5000);
   },
 };
 </script>
