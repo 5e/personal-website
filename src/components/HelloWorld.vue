@@ -7,6 +7,7 @@
             <v-card-item class="text-center">
               <v-card-title>
                 <div>
+                
                   <v-avatar size="90" class="elevation-2">
                     <v-img
                       :width="100"
