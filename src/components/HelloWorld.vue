@@ -2,7 +2,7 @@
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center fill-height">
       <v-row class="d-flex justify-center">
-        <v-col lg="6" xl="3" md="7" sm="8" xs="6">
+        <v-col lg="6" xl="4" md="7" sm="8" xs="6">
           <v-card class="elevation-5">
             <v-card-item class="text-center">
               <v-card-title>
