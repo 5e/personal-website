@@ -17,9 +17,13 @@
               </v-card-title>
               <v-card-subtitle>Full-stack Developer</v-card-subtitle>
               <v-card-subtitle class="d-flex pa-0">
-
                 <v-scroll-y-transition mode="out-in">
-                  <div style="font-size: 0.875rem;margin-top: 1px;" class="mr-1" :key="spotifyStatus.item.uri"
+                  <div v-if="spotifyStatus != null">
+                    <v-icon style="color: #1db954" icon="mdi-spotify" size="21px"></v-icon>
+                  </div>
+                </v-scroll-y-transition>
+                <v-scroll-y-transition mode="out-in">
+                  <div style="font-size: 0.875rem;margin-top: 1px;" class="ml-1" :key="spotifyStatus.item.uri"
                     v-if="spotifyStatus != null">
                     Listening to
                     {{ spotifyStatus.item.name }}
@@ -28,11 +32,7 @@
                     }}
                   </div>
                 </v-scroll-y-transition>
-                <v-scroll-y-transition mode="out-in">
-                  <div v-if="spotifyStatus != null">
-                    <v-icon style="color: #1db954" icon="mdi-spotify"></v-icon>
-                  </div>
-                </v-scroll-y-transition>
+
               </v-card-subtitle>
             </v-card-item>
             <v-card-text>
