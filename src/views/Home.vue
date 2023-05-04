@@ -52,7 +52,8 @@
                 </span>
               </v-scroll-y-transition>
               <v-spacer></v-spacer>
-              <v-btn target="_blank" href="https://www.linkedin.com/in/dominik-p-45036a269/">LinkedIn</v-btn>
+              <v-btn append-icon="mdi-link" target="_blank"
+                href="https://www.linkedin.com/in/dominik-p-45036a269/">LinkedIn</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
