@@ -7,13 +7,31 @@
             <v-card-item>
               <v-card-title>
                 <div>
-                  <v-avatar size="90" class="elevation-2">
+                  <v-avatar size="90" class="elevation-5">
                     <v-img :width="100" aspect-ratio="16/9" src="../assets/image1.png"></v-img>
                   </v-avatar>
                 </div>
-                Dominik Pawlowski
+                <div>
+                  Dominik Pawlowski
+                </div>
               </v-card-title>
               <v-card-subtitle>Full-stack Developer</v-card-subtitle>
+              <v-card-subtitle class="d-flex" v-if="spotifyStatus != null">
+                <v-scroll-y-transition mode="out-in">
+                  <div class="mr-1">
+                    <v-icon style="color: #1db954" icon="mdi-spotify"></v-icon>
+                  </div>
+                </v-scroll-y-transition>
+                <v-scroll-y-transition mode="out-in">
+                  <div style="font-size: 0.875rem;margin-top: 2px;" :key="spotifyStatus.item.uri">
+                    Listening to
+                    {{ spotifyStatus.item.name }}
+                    by {{
+                      allArtists
+                    }}
+                  </div>
+                </v-scroll-y-transition>
+              </v-card-subtitle>
             </v-card-item>
             <v-card-text>
               <v-row>
@@ -34,26 +52,9 @@
               </v-row>
             </v-card-text>
             <v-card-actions>
-              <v-scroll-y-transition mode="out-in">
-                <div class="mr-2" v-if="spotifyStatus != null">
-                  <v-icon style="color: #1db954" icon="mdi-spotify"></v-icon>
-                </div>
-              </v-scroll-y-transition>
-              <v-scroll-y-transition mode="out-in">
-                <span style="
-                  line-height: 18px;
-                  font-size: 0.875rem;
-                  font-weight: 400;
-                " v-if="spotifyStatus != null" :key="spotifyStatus.item.uri">{{ spotifyStatus.item.name }}
-                  <br />
-                  <span style="font-size: 0.75rem; font-weight: 400">{{
-                    allArtists
-                  }}</span>
-                </span>
-              </v-scroll-y-transition>
-              <v-spacer></v-spacer>
               <v-btn append-icon="mdi-link" target="_blank"
                 href="https://www.linkedin.com/in/dominik-p-45036a269/">LinkedIn</v-btn>
+              <v-btn append-icon="mdi-link" target="_blank" href="https://www.github.com/5e">GitHub</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -136,9 +137,9 @@ export default {
   mounted() {
     this.getSpotifyStatus();
 
-    // const timer = setInterval(() => {
-    //   this.getSpotifyStatus();
-    // }, 5000);
+    const timer = setInterval(() => {
+      this.getSpotifyStatus();
+    }, 5000);
   },
 };
 </script>
