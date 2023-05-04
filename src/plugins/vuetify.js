@@ -26,6 +26,7 @@ export default createVuetify({
     },
   },
   theme: {
+    defaultTheme: 'dark',
     themes: {
       light: {
         colors: {
@@ -34,5 +35,6 @@ export default createVuetify({
         },
       },
     },
+
   },
 });

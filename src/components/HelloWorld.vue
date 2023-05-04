@@ -2,18 +2,14 @@
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center fill-height">
       <v-row class="d-flex justify-center">
-        <v-col lg="6" xl="4" md="7" sm="8" xs="6">
-          <v-card class="elevation-5">
+        <v-col lg="12" xl="12" md="12" sm="12" xs="12">
+          <v-card class="elevation-5" rounded="xl">
             <v-card-item class="text-center">
               <v-card-title>
                 <div>
-                
+
                   <v-avatar size="90" class="elevation-2">
-                    <v-img
-                      :width="100"
-                      aspect-ratio="16/9"
-                      src="../assets/image1.png"
-                    ></v-img>
+                    <v-img :width="100" aspect-ratio="16/9" src="../assets/image1.png"></v-img>
                   </v-avatar>
                 </div>
                 Dominik Pawlowski
@@ -53,19 +49,9 @@
             <v-card-text>
               <div><b>Skills</b></div>
               <v-row>
-                <v-col
-                  cols="6"
-                  class="pb-0"
-                  v-for="item in items"
-                  :key="item.text"
-                >
-                  <v-sheet
-                    rounded
-                    class="d-flex px-3 py-2"
-                    color="grey-lighten-3"
-                  >
-                    <span
-                      >{{ item.text }}
+                <v-col cols="6" class="pb-0" v-for="item in items" :key="item.text">
+                  <v-sheet rounded class="d-flex px-3 py-2" color="grey-lighten-3">
+                    <span>{{ item.text }}
                       <br />
                       <span style="font-size: 0.75rem">
                         {{ item.description }}
@@ -86,15 +72,11 @@
                 </div>
               </v-scroll-y-transition>
               <v-scroll-y-transition mode="out-in">
-                <span
-                  style="
+                <span style="
                     line-height: 18px;
                     font-size: 0.875rem;
                     font-weight: 400;
-                  "
-                  v-if="spotifyStatus != null"
-                  :key="spotifyStatus.item.uri"
-                  >{{ spotifyStatus.item.name }}
+                  " v-if="spotifyStatus != null" :key="spotifyStatus.item.uri">{{ spotifyStatus.item.name }}
                   <br />
                   <span style="font-size: 0.75rem; font-weight: 400">{{
                     allArtists
@@ -102,11 +84,7 @@
                 </span>
               </v-scroll-y-transition>
               <v-spacer></v-spacer>
-              <v-btn
-                target="_blank"
-                href="https://www.linkedin.com/in/dominik-p-45036a269/"
-                >LinkedIn</v-btn
-              >
+              <v-btn target="_blank" href="https://www.linkedin.com/in/dominik-p-45036a269/">LinkedIn</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -189,9 +167,9 @@ export default {
   mounted() {
     this.getSpotifyStatus();
 
-    const timer = setInterval(() => {
-      this.getSpotifyStatus();
-    }, 5000);
+    // const timer = setInterval(() => {
+    //   this.getSpotifyStatus();
+    // }, 5000);
   },
 };
 </script>
