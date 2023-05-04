@@ -1,12 +1,12 @@
 <template>
-  <div class="align-center d-flex fill-height justify-end">
+  <nav class="align-center d-flex fill-height justify-end">
     <v-list density="compact" class="bg-transparent">
       <v-list-item v-for="(item, i) in items" :key="i" :value="item.title" rounded="xl" :to="item.route" exact>
         <v-list-item-title v-text="item.title"></v-list-item-title>
 
       </v-list-item>
     </v-list>
-  </div>
+  </nav>
 </template>
 
 <script>
