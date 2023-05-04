@@ -1,8 +1,10 @@
 <template>
   <v-main>
-    <v-fade-transition>
-      <router-view />
-    </v-fade-transition>
+    <router-view v-slot="{ Component }">
+      <v-fade-transition mode="out-in">
+        <component :is="Component"></component>
+      </v-fade-transition>
+    </router-view>
   </v-main>
 </template>
 
