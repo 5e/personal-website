@@ -9,13 +9,17 @@
                                 Education
                             </v-card-title>
                         </v-card-item>
-                        <v-card-text>
-                            University of South Wales <i>(2019 - 2024)</i><br />
-                            BSc (Hons) in Digital and Technology Solutions
-                            <div class="mb-2"></div>
-                            Coleg Gwent <i>(2016 - 2019)</i><br />
-                            A-Levels in Maths, Further Maths, Computer Science
-                        </v-card-text>
+                        <v-list class="pt-0" density="compact">
+                            <v-list-item title="BSc (Hons) in Digital and Technology Solutions"
+                                subtitle="University of South Wales (2019 - 2024)"></v-list-item>
+                            <v-list-item title="Microsoft Certified: Azure Fundamentals" subtitle="Microsoft (2020)"
+                                target="_blank" href="https://www.credly.com/users/dominik-pawlowski"
+                                append-icon="mdi-link"></v-list-item>
+                            <v-list-item title="A-Levels in Maths, Further Maths, Computer Science"
+                                subtitle="Coleg Gwent (2016 - 2019)"></v-list-item>
+
+                        </v-list>
+
 
                     </v-card>
                 </v-col>
