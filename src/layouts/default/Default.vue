@@ -1,23 +1,47 @@
 <template>
   <v-app class="waves">
     <v-container class="fill-height">
-      <v-row>
-        <v-col cols="2" offset="1">
-          <default-bar />
+      <v-row no-gutters>
+        <v-col v-if="width >= 960" xs="1" sm="2" md="3" lg="3" xl="4">
+          <desktop-nav />
         </v-col>
-        <v-col cols="7">
+        <v-col xs="12" sm="12" md="6" lg="6" xl="3">
           <default-view />
         </v-col>
-        <v-col cols="2">
+
+      </v-row>
+      <v-row no-gutters v-if="width <= 959">
+        <v-col xs="12" sm="12">
+          <mobile-nav />
         </v-col>
       </v-row>
     </v-container>
   </v-app>
 </template>
 
-<script setup>
-import DefaultBar from "./AppBar.vue";
+<script>
+import DesktopNav from "./DesktopNav.vue";
 import DefaultView from "./View.vue";
+import MobileNav from "./MobileNav.vue";
+
+export default {
+  data() {
+    return {
+    };
+  },
+  computed: {
+    width() {
+      return this.$vuetify.display.width
+    }
+  },
+  mounted() {
+  },
+  components: {
+    DesktopNav,
+    DefaultView,
+    MobileNav
+  }
+}
 </script>
 
 <style scoped>
