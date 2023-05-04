@@ -35,23 +35,10 @@
 
               </v-card-subtitle>
             </v-card-item>
-            <v-card-text>
-              <v-row>
-                <v-col cols="6" class="pb-0" v-for="item in items" :key="item.text">
-                  <v-sheet rounded class="d-flex px-3 py-2" color="grey-darken-3">
-                    <span>{{ item.text }}
-                      <br />
-                      <span style="font-size: 0.75rem">
-                        {{ item.description }}
-                      </span>
-                    </span>
-                    <v-spacer></v-spacer>
-                    <div class="align-self-center">
-                      <v-icon :icon="item.icon"></v-icon>
-                    </div>
-                  </v-sheet>
-                </v-col>
-              </v-row>
+            <v-card-text class="pb-0">
+              <v-sheet v-for="item in items" class="d-inline-flex pa-1 mr-1" rounded="xl" color="grey-darken-3">
+                <v-icon :icon="item.icon" size="large"></v-icon>
+              </v-sheet>
             </v-card-text>
             <v-card-actions>
               <v-btn append-icon="mdi-link" target="_blank"
