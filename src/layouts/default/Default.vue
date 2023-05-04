@@ -2,10 +2,10 @@
   <v-app class="waves">
     <v-container class="fill-height">
       <v-row no-gutters>
-        <v-col v-if="width >= 960" xs="1" sm="2" md="3" lg="3" xl="4">
+        <v-col v-if="width >= 960" xs="1" sm="2" md="3" lg="3" xl="4" xxl="4">
           <desktop-nav />
         </v-col>
-        <v-col xs="12" sm="12" md="6" lg="6" xl="3">
+        <v-col xs="12" sm="12" md="6" lg="6" xl="4" xxl="3">
           <default-view />
         </v-col>
 
