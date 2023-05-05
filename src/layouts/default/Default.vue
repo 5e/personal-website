@@ -1,21 +1,16 @@
 <template>
   <v-app class="waves">
     <v-container class="fill-height">
-      <v-row no-gutters>
-        <v-col v-if="width >= 960" xs="1" sm="2" md="3" lg="3" xl="4" xxl="4">
+      <v-row no-gutters class="justify-center">
+        <v-col v-if="width >= 960" xs="1" sm="1" md="3" lg="3" xl="4" xxl="4">
           <desktop-nav />
         </v-col>
-        <v-col xs="12" sm="12" md="6" lg="6" xl="4" xxl="3">
+        <v-col xs="10" sm="10" md="6" lg="6" xl="4" xxl="3">
           <default-view />
-        </v-col>
-
-      </v-row>
-      <v-row no-gutters v-if="width <= 959">
-        <v-col xs="12" sm="12">
-          <mobile-nav />
         </v-col>
       </v-row>
     </v-container>
+    <mobile-nav v-if="width <= 959" />
   </v-app>
 </template>
 
