@@ -23,8 +23,8 @@
                   </div>
                 </v-scroll-y-transition>
                 <v-scroll-y-transition mode="out-in">
-                  <div style="font-size: 0.875rem;margin-top: 1px;" class="ml-1" :key="spotifyStatus.item.uri"
-                    v-if="spotifyStatus != null">
+                  <div style="font-size: 0.875rem;margin-top: 1px; overflow:hidden; text-overflow: ellipsis; "
+                    class="ml-1" :key="spotifyStatus.item.uri" v-if="spotifyStatus != null">
                     Listening to
                     {{ spotifyStatus.item.name }}
                     by {{
