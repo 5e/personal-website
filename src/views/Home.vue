@@ -23,13 +23,14 @@
                   </div>
                 </v-scroll-y-transition>
                 <v-scroll-y-transition mode="out-in">
-                  <div style="font-size: 0.875rem;margin-top: 1px; overflow:hidden; text-overflow: ellipsis; "
-                    class="ml-1" :key="spotifyStatus.item.uri" v-if="spotifyStatus != null">
-                    Listening to
-                    {{ spotifyStatus.item.name }}
-                    by {{
-                      allArtists
-                    }}
+                  <div class="marquee" ref="outsideDiv" :key="spotifyStatus.item.uri" v-if="spotifyStatus != null">
+                    <div>
+                      <span ref="insideSpan">Listening to
+                        {{ spotifyStatus.item.name }}
+                        by {{
+                          allArtists
+                        }}</span>
+                    </div>
                   </div>
                 </v-scroll-y-transition>
 
@@ -96,6 +97,8 @@ export default {
           description: "5 years",
         },
       ],
+      spanWidth: null,
+      totalWidth: null,
     };
   },
   computed: {
@@ -108,6 +111,18 @@ export default {
       total = total.slice(0, -2);
       return total;
     },
+
+    totalToScroll() {
+      if (this.spotifyStatus == null) {
+        return "0%"
+      } else
+        try {
+          return (this.spanWidth - this.totalWidth) * -1 + "px";
+        } catch (err) {
+          console.log(err)
+          return "0%"
+        }
+    }
   },
   methods: {
     getSpotifyStatus() {
@@ -117,11 +132,19 @@ export default {
         .then((response) => {
           if (response.status != 204) {
             this.spotifyStatus = response.data;
+            this.$nextTick(() => {
+              this.updateWidths();
+            })
+
           } else {
             this.spotifyStatus = null;
           }
         });
     },
+    updateWidths(e) {
+      this.spanWidth = this.$refs.insideSpan.offsetWidth;
+      this.totalWidth = this.$refs.outsideDiv.offsetWidth;
+    }
   },
   mounted() {
     this.getSpotifyStatus();
@@ -130,7 +153,35 @@ export default {
       this.getSpotifyStatus();
     }, 5000);
   },
+  created() {
+    window.addEventListener("resize", this.updateWidths);
+  }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.marquee {
+  overflow: hidden;
+  display: block;
+}
+
+.marquee div {
+  margin-top: 2px;
+  overflow: visible;
+  animation: marquee 10s ease-in-out alternate infinite;
+}
+
+
+@keyframes marquee {
+
+  0%,
+  10% {
+    transform: translateX(0%);
+  }
+
+  90%,
+  100% {
+    transform: translateX(v-bind(totalToScroll));
+  }
+}
+</style>
