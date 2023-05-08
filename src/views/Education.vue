@@ -10,14 +10,27 @@
                             </v-card-title>
                         </v-card-item>
                         <v-list class="pt-0" density="compact">
-                            <v-list-item title="BSc (Hons) in Digital and Technology Solutions"
-                                subtitle="University of South Wales (2019 - 2024)"></v-list-item>
-                            <v-list-item title="Microsoft Certified: Azure Fundamentals" subtitle="Microsoft (2020)"
-                                target="_blank" href="https://www.credly.com/users/dominik-pawlowski"
-                                append-icon="mdi-link"></v-list-item>
-                            <v-list-item title="A-Levels in Maths, Further Maths, Computer Science"
-                                subtitle="Coleg Gwent (2016 - 2019)"></v-list-item>
-
+                            <v-list-item>
+                                <v-list-item-title style="white-space: normal;">
+                                    BSc (Hons) in Digital and Technology Solutions
+                                </v-list-item-title>
+                                <v-list-item-subtitle style="white-space: normal;">
+                                    University of South Wales (2019 - 2024)</v-list-item-subtitle>
+                            </v-list-item>
+                            <v-list-item href="https://www.credly.com/users/dominik-pawlowski" append-icon="mdi-link">
+                                <v-list-item-title style="white-space: normal;">
+                                    Microsoft Certified: Azure Fundamentals
+                                </v-list-item-title>
+                                <v-list-item-subtitle style="white-space: normal;">
+                                    Microsoft (2020)</v-list-item-subtitle>
+                            </v-list-item>
+                            <v-list-item>
+                                <v-list-item-title style="white-space: normal;">
+                                    A-Levels in Maths, Further Maths, Computer Science
+                                </v-list-item-title>
+                                <v-list-item-subtitle style="white-space: normal;">
+                                    Coleg Gwent (2016 - 2019)</v-list-item-subtitle>
+                            </v-list-item>
                         </v-list>
 
 
@@ -33,43 +46,7 @@
 export default {
     data() {
         return {
-            items: [
-                {
-                    text: "Vue.js",
-                    icon: "fa:fas fa-brands fa-vuejs",
-                    description: "4 years",
-                },
-                {
-                    text: "Vuetify",
-                    icon: "mdi-vuetify",
-                    description: "4 years",
-                },
-                {
-                    text: "C#",
-                    icon: "mdi-dot-net",
-                    description: "4 years",
-                },
-                {
-                    text: "SQL",
-                    icon: "mdi-database-search",
-                    description: "5 years",
-                },
-                {
-                    text: "REST APIs",
-                    icon: "mdi-cloud-braces",
-                    description: "4 years",
-                },
-                {
-                    text: "Python",
-                    icon: "mdi-language-python",
-                    description: "2 years",
-                },
-                {
-                    text: "JavaScript",
-                    icon: "fa:fas fa-brands fa-square-js",
-                    description: "5 years",
-                },
-            ],
+
         };
     },
     computed: {
