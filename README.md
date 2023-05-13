@@ -1,5 +1,7 @@
 # Personal website
 
+Just a place to try and be creative, expect the design to change every few weeks as I get bored fast 😅
+
 [https://pawlowski.app](https://pawlowski.app)
 
 ![image of my personal site](https://us-east-1.tixte.net/uploads/23423.tixte.co/1_ooo.gif)
