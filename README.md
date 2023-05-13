@@ -1,4 +1,8 @@
-# essentials
+# Personal website
+
+[https://pawlowski.app](https://pawlowski.app)
+
+![image of my personal site](https://i.imgur.com/ZgWhL8D.png)
 
 ## Project setup
 
