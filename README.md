@@ -2,7 +2,7 @@
 
 [https://pawlowski.app](https://pawlowski.app)
 
-![image of my personal site](https://i.imgur.com/ZgWhL8D.png)
+![image of my personal site](https://us-east-1.tixte.net/uploads/23423.tixte.co/1_ooo.gif)
 
 ## Project setup
 
