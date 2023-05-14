@@ -166,7 +166,7 @@ export default {
 }
 
 .marquee div {
-  margin-top: 2px;
+  margin-top: 1px;
   overflow: visible;
   animation: marquee 10s ease-in-out alternate infinite;
 }
