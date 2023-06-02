@@ -3,47 +3,85 @@
     <v-responsive>
       <v-row>
         <v-col lg="12" xl="12" md="12" sm="12" xs="12">
-          <v-card class="elevation-0" rounded="xl">
+          <v-card
+            class="elevation-0"
+            style="margin: auto"
+            rounded="xl"
+            max-width="500px"
+          >
             <v-card-item>
-              <v-card-title>
+              <div class="d-flex">
                 <div>
                   <v-avatar size="90" class="elevation-5">
-                    <v-img :width="100" aspect-ratio="16/9" src="../assets/image1.png"></v-img>
+                    <v-img
+                      :width="100"
+                      aspect-ratio="16/9"
+                      src="../assets/image1.png"
+                    ></v-img>
                   </v-avatar>
                 </div>
-                <div>
-                  Dominik Pawlowski
+                <div class="align-self-center">
+                  <span style="font-size: 1.25rem; font-weight: 500"
+                    >Dominik Pawlowski</span
+                  >
+                  <v-card-subtitle class="pb-0"
+                    >Full-stack Developer</v-card-subtitle
+                  >
+                  <v-card-subtitle>dominik@pawlowski.app</v-card-subtitle>
                 </div>
-              </v-card-title>
-              <v-card-subtitle>Full-stack Developer</v-card-subtitle>
-              <v-card-subtitle class="d-flex pa-0">
+              </div>
+              <v-card-subtitle class="d-flex pa-0 pt-1">
                 <v-scroll-y-transition mode="out-in">
                   <div v-if="spotifyStatus != null">
-                    <v-icon style="color: #1db954" icon="mdi-spotify" size="21px"></v-icon>
+                    <v-icon
+                      style="color: #1db954"
+                      icon="mdi-spotify"
+                      size="21px"
+                    ></v-icon>
                   </div>
                 </v-scroll-y-transition>
                 <v-scroll-y-transition mode="out-in">
-                  <div style="font-size: 0.875rem;margin-top: 1px; overflow:hidden; text-overflow: ellipsis; "
-                    class="ml-1" :key="spotifyStatus.item.uri" v-if="spotifyStatus != null">
+                  <div
+                    style="
+                      font-size: 0.875rem;
+                      margin-top: 1px;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                    "
+                    class="ml-1"
+                    :key="spotifyStatus.item.uri"
+                    v-if="spotifyStatus != null"
+                  >
                     Listening to
                     {{ spotifyStatus.item.name }}
-                    by {{
-                      allArtists
-                    }}
+                    by {{ allArtists }}
                   </div>
                 </v-scroll-y-transition>
-
               </v-card-subtitle>
             </v-card-item>
             <v-card-text class="pb-0">
-              <v-sheet v-for="item in items" class="d-inline-flex pa-1 mr-1" rounded="xl" color="grey-darken-3">
+              <v-sheet
+                v-for="item in items"
+                class="d-inline-flex pa-1 mr-1"
+                rounded="xl"
+                color="grey-darken-3"
+              >
                 <v-icon :icon="item.icon" size="large"></v-icon>
               </v-sheet>
             </v-card-text>
             <v-card-actions>
-              <v-btn append-icon="mdi-link" target="_blank"
-                href="https://www.linkedin.com/in/dominik-p-45036a269/">LinkedIn</v-btn>
-              <v-btn append-icon="mdi-link" target="_blank" href="https://www.github.com/5e">GitHub</v-btn>
+              <v-btn
+                append-icon="mdi-link"
+                target="_blank"
+                href="https://www.linkedin.com/in/dominik-p-45036a269/"
+                >LinkedIn</v-btn
+              >
+              <v-btn
+                append-icon="mdi-link"
+                target="_blank"
+                href="https://www.github.com/5e"
+                >GitHub</v-btn
+              >
             </v-card-actions>
           </v-card>
         </v-col>
