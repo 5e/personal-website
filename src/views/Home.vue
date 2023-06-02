@@ -13,11 +13,7 @@
               <div class="d-flex">
                 <div>
                   <v-avatar size="90" class="elevation-5">
-                    <v-img
-                      :width="100"
-                      aspect-ratio="16/9"
-                      src="../assets/image1.png"
-                    ></v-img>
+                    <v-img src="../assets/image1.png"></v-img>
                   </v-avatar>
                 </div>
                 <div class="align-self-center">
