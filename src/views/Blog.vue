@@ -9,10 +9,7 @@
                 <v-card-title>Blog</v-card-title>
               </v-card-item>
               <v-list class="pt-0" density="compact">
-                <v-list-item
-                  v-for="blog in blogPosts"
-                  @click="selectedBlog = blog"
-                >
+                <v-list-item v-for="blog in blogPosts" @click="OpenPost(blog)">
                   <v-list-item-title style="white-space: normal">
                     {{ blog.title }}
                   </v-list-item-title>
@@ -47,7 +44,8 @@
                     </span>
                   </div>
                   <div class="float-right">
-                    <v-icon icon="mdi-eye-outline" size="x-small"></v-icon> 11
+                    <v-icon icon="mdi-eye-outline" size="x-small"></v-icon>
+                    {{ selectedBlog.views }}
                   </div>
                 </v-card-title>
               </v-card-item>
@@ -78,6 +76,10 @@ export default {
     },
   },
   methods: {
+    OpenPost(blog) {
+      this.selectedBlog = blog;
+      this.AddView(this.selectedBlog.id);
+    },
     FormattedDate(input) {
       let d = new Date(input);
       const options = {
@@ -97,6 +99,23 @@ export default {
         })
         .then((response) => {
           this.blogPosts = response.data;
+        })
+        .catch((error) => {});
+    },
+    AddView() {
+      axios
+        .post(
+          "https://rjghsdhobisxfxxrlusw.supabase.co/rest/v1/rpc/addview",
+          { blogid: this.selectedBlog.id },
+          {
+            headers: {
+              apikey:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqZ2hzZGhvYmlzeGZ4eHJsdXN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTc1NzMwOTksImV4cCI6MjAxMzE0OTA5OX0.VlU8Uo6dpAnOCEE2P99tQLhrm8n-DxExaiB11-Bps1Q",
+            },
+          }
+        )
+        .then((response) => {
+          this.selectedBlog.views = response.data;
         })
         .catch((error) => {});
     },
