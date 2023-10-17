@@ -6,7 +6,7 @@
           <v-col lg="12" xl="12" md="12" sm="12" xs="12">
             <v-card class="elevation-0" rounded="xl">
               <v-card-item>
-                <v-card-title> Blog </v-card-title>
+                <v-card-title>Blog</v-card-title>
               </v-card-item>
               <v-list class="pt-0" density="compact">
                 <v-list-item
@@ -17,7 +17,7 @@
                     {{ blog.title }}
                   </v-list-item-title>
                   <v-list-item-subtitle style="white-space: normal">
-                    {{ blog.created_at }}
+                    {{ FormattedDate(blog.created_at) }}
                   </v-list-item-subtitle>
                 </v-list-item>
               </v-list>
@@ -32,20 +32,24 @@
               style="max-height: 500px; overflow: scroll"
             >
               <v-card-item>
-                <v-card-title style="text-align: center">
+                <v-card-title class="d-flex justify-space-between align-center">
                   <v-btn
                     @click="selectedBlog = null"
-                    class="float-left"
+                    class="float-left elevation-0"
                     icon="mdi-arrow-left"
                   ></v-btn>
 
-                  <span>
+                  <div style="text-align: center; line-height: 20px">
                     {{ selectedBlog.title }}
-                  </span>
-                  <span class="float-right">{{
-                    selectedBlog.created_at
-                  }}</span></v-card-title
-                >
+                    <br />
+                    <span style="font-size: 13px; font-weight: normal">
+                      {{ FormattedDate(selectedBlog.created_at) }}
+                    </span>
+                  </div>
+                  <div class="float-right">
+                    <v-icon icon="mdi-eye-outline" size="x-small"></v-icon> 11
+                  </div>
+                </v-card-title>
               </v-card-item>
               <v-card-text>
                 <div v-html="markdown" class="markdown"></div>
@@ -74,6 +78,15 @@ export default {
     },
   },
   methods: {
+    FormattedDate(input) {
+      let d = new Date(input);
+      const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      return d.toLocaleDateString(undefined, options);
+    },
     GetBlogPosts() {
       axios
         .get("https://rjghsdhobisxfxxrlusw.supabase.co/rest/v1/posts", {
