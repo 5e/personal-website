@@ -1,9 +1,15 @@
 <template>
   <nav class="align-center d-flex fill-height justify-end">
     <v-list density="compact" class="bg-transparent">
-      <v-list-item v-for="(item, i) in items" :key="i" :value="item.title" rounded="xl" :to="item.route" exact>
+      <v-list-item
+        v-for="(item, i) in items"
+        :key="i"
+        :value="item.title"
+        rounded="xl"
+        :to="item.route"
+        exact
+      >
         <v-list-item-title v-text="item.title"></v-list-item-title>
-
       </v-list-item>
     </v-list>
   </nav>
@@ -15,26 +21,29 @@ export default {
     return {
       items: [
         {
-          title: 'home',
+          title: "home",
           value: 1,
-          route: '/'
+          route: "/",
         },
         {
-          title: 'experience',
+          title: "experience",
           value: 2,
-          route: '/experience'
+          route: "/experience",
         },
         {
-          title: 'education',
+          title: "education",
           value: 3,
-          route: '/education'
+          route: "/education",
+        },
+        {
+          title: "blog",
+          value: 4,
+          route: "/blog",
         },
       ],
     };
   },
-
 };
 </script>
-
 
 <style scoped></style>
