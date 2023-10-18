@@ -162,7 +162,7 @@ export default {
 
     const timer = setInterval(() => {
       this.getSpotifyStatus();
-    }, 999999999);
+    }, 10000);
   },
 };
 </script>
