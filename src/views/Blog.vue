@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-responsive>
-      <v-slide-x-reverse-transition hide-on-leave>
+      <v-slide-x-reverse-transition mode="out-in">
         <v-row v-if="selectedBlog == null">
           <v-col lg="12" xl="12" md="12" sm="12" xs="12">
             <v-card class="elevation-0" rounded="xl">
