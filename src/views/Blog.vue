@@ -26,11 +26,10 @@
         </v-row>
         <v-row v-else>
           <v-col lg="12" xl="12" md="12" sm="12" xs="12">
-            <v-card class="elevation-0" rounded="xl" style="max-height: 500px;">
+            <v-card class="elevation-0" rounded="xl" style="overflow:auto;">
               <v-card-item>
                 <v-card-title class="d-flex justify-space-between align-center">
-                  <v-btn @click="selectedBlog = null" class="float-left elevation-0" icon="mdi-arrow-left"></v-btn>
-
+                  <v-btn @click="CloseBlogPost()" class="float-left elevation-0" icon="mdi-arrow-left"></v-btn>
                   <div style="text-align: center; line-height: 20px">
                     {{ selectedBlog.title }}
                     <br />
@@ -46,6 +45,31 @@
               </v-card-item>
               <v-card-text>
                 <div v-html="markdown" class="markdown"></div>
+
+              </v-card-text>
+            </v-card>
+            <v-card class="elevation-0 mt-2" rounded="xl" style="overflow:auto;">
+              <v-card-item>
+                Comments
+              </v-card-item>
+              <v-card-text>
+                <div class="d-flex" v-if="appStore.user != null">
+                  <v-textarea v-model="tempComment" rows="2" style="width: 80%"></v-textarea>
+                  <v-btn :loading="submittingComment" @click="SubmitComment()" class="elevation-0"
+                    icon="mdi-send"></v-btn>
+                </div>
+                <div class="d-flex" v-else>
+                  <v-textarea disabled placeholder="Login to comment" rows="2" style="width: 80%"></v-textarea>
+                  <v-btn @click="GitHubLogin()" class="elevation-0" icon="mdi-github"></v-btn>
+                </div>
+                <div v-for="comment in comments" class="rounded-xl pa-4 my-2" style="background-color: #2b2b2b">
+                  {{ comment.username }}
+                  <span class="float-right">{{ FormattedTimeStamp(comment.created_at) }}</span>
+
+                  <div class="mt-1">
+                    {{ comment.comment }}
+                  </div>
+                </div>
               </v-card-text>
             </v-card>
           </v-col>
@@ -58,22 +82,36 @@
 <script>
 import axios from "axios";
 import { marked } from "marked";
+import { mapStores } from 'pinia'
+import { useAppStore } from '../store/app.js'
+
+
 export default {
   data() {
     return {
       loading: true,
       blogPosts: [],
       selectedBlog: null,
+      submittingComment: false,
+      tempComment: "",
+      loggedInUser: null,
+      comments: null,
     };
   },
   computed: {
+    ...mapStores(useAppStore),
     markdown() {
       return marked.parse(this.selectedBlog.markdown, { breaks: true });
     },
   },
   methods: {
+    CloseBlogPost() {
+      this.selectedBlog = null
+      this.comments = null
+    },
     OpenPost(blog) {
       this.selectedBlog = blog;
+      this.GetBlogComments();
       this.AddView(this.selectedBlog.id);
     },
     FormattedDate(input) {
@@ -85,36 +123,48 @@ export default {
       };
       return d.toLocaleDateString(undefined, options);
     },
-    GetBlogPosts() {
-      axios
-        .get("https://rjghsdhobisxfxxrlusw.supabase.co/rest/v1/posts", {
-          headers: {
-            apikey:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqZ2hzZGhvYmlzeGZ4eHJsdXN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTc1NzMwOTksImV4cCI6MjAxMzE0OTA5OX0.VlU8Uo6dpAnOCEE2P99tQLhrm8n-DxExaiB11-Bps1Q",
-          },
-        })
-        .then((response) => {
-          this.blogPosts = response.data;
-          this.loading = false;
-        })
-        .catch((error) => { });
+    FormattedTimeStamp(input) {
+      let d = new Date(input);
+      const options = {
+        dateStyle: 'long', timeStyle: 'short'
+      };
+      return d.toLocaleString(undefined, options);
     },
-    AddView() {
-      axios
-        .post(
-          "https://rjghsdhobisxfxxrlusw.supabase.co/rest/v1/rpc/addview",
-          { blogid: this.selectedBlog.id },
-          {
-            headers: {
-              apikey:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqZ2hzZGhvYmlzeGZ4eHJsdXN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTc1NzMwOTksImV4cCI6MjAxMzE0OTA5OX0.VlU8Uo6dpAnOCEE2P99tQLhrm8n-DxExaiB11-Bps1Q",
-            },
-          }
-        )
-        .then((response) => {
-          this.selectedBlog.views = response.data;
-        })
-        .catch((error) => { });
+    async GetBlogComments() {
+      const { data, error } = await this.$supabase
+        .from('comments')
+        .select()
+        .eq('fk_post_id', this.selectedBlog.id)
+      this.comments = data;
+    },
+    async GetBlogPosts() {
+      const { data, error } = await this.$supabase
+        .from('posts')
+        .select()
+
+      this.blogPosts = data;
+      this.loading = false;
+    },
+    async GitHubLogin() {
+      const { data, error } = await this.$supabase.auth.signInWithOAuth({
+        provider: 'github',
+      })
+    },
+    async AddView() {
+      const { data, error } = await this.$supabase.rpc('addview', { blogid: this.selectedBlog.id })
+      this.selectedBlog.views = data;
+    },
+    async SubmitComment() {
+      this.submittingComment = true;
+      const {
+        data: { user },
+      } = await this.$supabase.auth.getUser()
+      const { data, error } = await this.$supabase
+        .from('comments')
+        .insert({ created_at: new Date(), fk_post_id: this.selectedBlog.id, comment: this.tempComment, username: user.user_metadata.user_name })
+        .select()
+      this.comments.push(data[0]);
+      this.submittingComment = false;
     },
   },
   mounted() {
