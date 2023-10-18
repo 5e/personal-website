@@ -3,12 +3,7 @@
     <v-responsive>
       <v-row>
         <v-col lg="12" xl="12" md="12" sm="12" xs="12">
-          <v-card
-            class="elevation-0"
-            style="margin: auto"
-            rounded="xl"
-            max-width="500px"
-          >
+          <v-card class="elevation-0" style="margin: auto" rounded="xl" max-width="500px">
             <v-card-item>
               <div class="d-flex">
                 <div>
@@ -17,37 +12,24 @@
                   </v-avatar>
                 </div>
                 <div class="align-self-center">
-                  <span style="font-size: 1.25rem; font-weight: 500"
-                    >Dominik Pawlowski</span
-                  >
-                  <v-card-subtitle class="pb-0"
-                    >Full-stack Developer</v-card-subtitle
-                  >
+                  <span style="font-size: 1.25rem; font-weight: 500">Dominik Pawlowski</span>
+                  <v-card-subtitle class="pb-0">Full-stack Developer</v-card-subtitle>
                   <v-card-subtitle>dominik@pawlowski.app</v-card-subtitle>
                 </div>
               </div>
               <v-card-subtitle class="d-flex pa-0 pt-1">
                 <v-scroll-y-transition mode="out-in">
                   <div v-if="spotifyStatus != null">
-                    <v-icon
-                      style="color: #1db954"
-                      icon="mdi-spotify"
-                      size="21px"
-                    ></v-icon>
+                    <v-icon style="color: #1db954" icon="mdi-spotify" size="21px"></v-icon>
                   </div>
                 </v-scroll-y-transition>
                 <v-scroll-y-transition mode="out-in">
-                  <div
-                    style="
+                  <div style="
                       font-size: 0.875rem;
                       margin-top: 1px;
                       overflow: hidden;
                       text-overflow: ellipsis;
-                    "
-                    class="ml-1"
-                    :key="spotifyStatus.item.uri"
-                    v-if="spotifyStatus != null"
-                  >
+                    " class="ml-1" :key="spotifyStatus.item.uri" v-if="spotifyStatus != null">
                     Listening to
                     {{ spotifyStatus.item.name }}
                     by {{ allArtists }}
@@ -56,28 +38,14 @@
               </v-card-subtitle>
             </v-card-item>
             <v-card-text class="pb-0">
-              <v-sheet
-                v-for="item in items"
-                class="d-inline-flex pa-1 mr-2"
-                rounded="xl"
-                color="grey-darken-3"
-              >
+              <v-sheet v-for="item in items" class="d-inline-flex pa-1 mr-2" rounded="xl" color="grey-darken-3">
                 <v-icon :icon="item.icon" size="large"></v-icon>
               </v-sheet>
             </v-card-text>
             <v-card-actions>
-              <v-btn
-                append-icon="mdi-link"
-                target="_blank"
-                href="https://www.linkedin.com/in/dominik-p-45036a269/"
-                >LinkedIn</v-btn
-              >
-              <v-btn
-                append-icon="mdi-link"
-                target="_blank"
-                href="https://www.github.com/5e"
-                >GitHub</v-btn
-              >
+              <v-btn append-icon="mdi-link" target="_blank"
+                href="https://www.linkedin.com/in/dominik-p-45036a269/">LinkedIn</v-btn>
+              <v-btn append-icon="mdi-link" target="_blank" href="https://www.github.com/5e">GitHub</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -160,9 +128,9 @@ export default {
   mounted() {
     this.getSpotifyStatus();
 
-    const timer = setInterval(() => {
-      this.getSpotifyStatus();
-    }, 10000);
+    // const timer = setInterval(() => {
+    //   this.getSpotifyStatus();
+    // }, 10000);
   },
 };
 </script>
