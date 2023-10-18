@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-responsive>
-      <v-slide-x-reverse-transition mode="out-in">
+      <v-fade-transition mode="out-in">
         <v-row v-if="selectedBlog == null">
           <v-col lg="12" xl="12" md="12" sm="12" xs="12">
             <v-card class="elevation-0" rounded="xl">
@@ -26,7 +26,7 @@
         </v-row>
         <v-row v-else>
           <v-col lg="12" xl="12" md="12" sm="12" xs="12">
-            <v-card class="elevation-0" rounded="xl" style="max-height: 500px; overflow: scroll">
+            <v-card class="elevation-0" rounded="xl" style="max-height: 500px;">
               <v-card-item>
                 <v-card-title class="d-flex justify-space-between align-center">
                   <v-btn @click="selectedBlog = null" class="float-left elevation-0" icon="mdi-arrow-left"></v-btn>
@@ -50,7 +50,7 @@
             </v-card>
           </v-col>
         </v-row>
-      </v-slide-x-reverse-transition>
+      </v-fade-transition>
     </v-responsive>
   </v-container>
 </template>
