@@ -1,8 +1,10 @@
-# Personal website
 
-Just a place to try and be creative, expect the design to change every few weeks as I get bored fast 😅
+# [https://pawlowski.app](https://pawlowski.app)
 
-[https://pawlowski.app](https://pawlowski.app)
+Just a small site about myself and a place to try and be creative & explore new things.
+
+ - Live tracking of currently playing Spotify song from my account using Cloudflare Workers
+ - Markdown blog hosted with Supabase with GitHub authentication for commments
 
 ![image of my personal site](https://us-east-1.tixte.net/uploads/23423.tixte.co/1_ooo.gif)
 
