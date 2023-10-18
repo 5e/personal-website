@@ -112,7 +112,7 @@ export default {
     OpenPost(blog) {
       this.selectedBlog = blog;
       this.GetBlogComments();
-      //this.AddView(this.selectedBlog.id);
+      this.AddView(this.selectedBlog.id);
     },
     FormattedDate(input) {
       let d = new Date(input);

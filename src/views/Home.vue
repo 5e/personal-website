@@ -128,9 +128,9 @@ export default {
   mounted() {
     this.getSpotifyStatus();
 
-    // const timer = setInterval(() => {
-    //   this.getSpotifyStatus();
-    // }, 10000);
+    const timer = setInterval(() => {
+      this.getSpotifyStatus();
+    }, 10000);
   },
 };
 </script>
