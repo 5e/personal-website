@@ -58,7 +58,7 @@
             <v-card-text class="pb-0">
               <v-sheet
                 v-for="item in items"
-                class="d-inline-flex pa-1 mr-1"
+                class="d-inline-flex pa-1 mr-2"
                 rounded="xl"
                 color="grey-darken-3"
               >
