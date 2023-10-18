@@ -8,7 +8,7 @@
               <v-card-item>
                 <v-card-title>Blog</v-card-title>
               </v-card-item>
-              <v-list class="pt-0" density="compact">
+              <v-list class="pt-0" density="compact" v-if="!loading">
                 <v-list-item v-for="blog in blogPosts" @click="OpenPost(blog)">
                   <v-list-item-title style="white-space: normal">
                     {{ blog.title }}
@@ -18,23 +18,18 @@
                   </v-list-item-subtitle>
                 </v-list-item>
               </v-list>
+              <div class="text-center mb-5" v-else>
+                <v-progress-circular indeterminate color="orange"></v-progress-circular>
+              </div>
             </v-card>
           </v-col>
         </v-row>
         <v-row v-else>
           <v-col lg="12" xl="12" md="12" sm="12" xs="12">
-            <v-card
-              class="elevation-0"
-              rounded="xl"
-              style="max-height: 500px; overflow: scroll"
-            >
+            <v-card class="elevation-0" rounded="xl" style="max-height: 500px; overflow: scroll">
               <v-card-item>
                 <v-card-title class="d-flex justify-space-between align-center">
-                  <v-btn
-                    @click="selectedBlog = null"
-                    class="float-left elevation-0"
-                    icon="mdi-arrow-left"
-                  ></v-btn>
+                  <v-btn @click="selectedBlog = null" class="float-left elevation-0" icon="mdi-arrow-left"></v-btn>
 
                   <div style="text-align: center; line-height: 20px">
                     {{ selectedBlog.title }}
@@ -66,6 +61,7 @@ import { marked } from "marked";
 export default {
   data() {
     return {
+      loading: true,
       blogPosts: [],
       selectedBlog: null,
     };
@@ -99,8 +95,9 @@ export default {
         })
         .then((response) => {
           this.blogPosts = response.data;
+          this.loading = false;
         })
-        .catch((error) => {});
+        .catch((error) => { });
     },
     AddView() {
       axios
@@ -117,7 +114,7 @@ export default {
         .then((response) => {
           this.selectedBlog.views = response.data;
         })
-        .catch((error) => {});
+        .catch((error) => { });
     },
   },
   mounted() {
