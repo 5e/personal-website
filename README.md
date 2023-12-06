@@ -1,4 +1,13 @@
-# Nuxt 3 Minimal Starter
+# [https://pawlowski.app](https://pawlowski.app)
+
+Just a small site about myself and a place to try and be creative & explore new things.
+
+ - Live tracking of currently playing Spotify song from my account using Cloudflare Workers
+ - Markdown blog hosted with Supabase with GitHub authentication for commments
+
+First version of my website:
+
+![image of my personal site](https://us-east-1.tixte.net/uploads/23423.tixte.co/1_ooo.gif)
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
