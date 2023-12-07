@@ -24,11 +24,7 @@
 
     <v-scroll-y-transition>
       <div>
-        <div
-          v-if="comments != []"
-          v-for="comment in comments"
-          class="pa-4 my-2"
-        >
+        <div v-if="comments != []" v-for="comment in comments" class="my-2">
           <a
             target="_blank"
             :href="'https://github.com/' + comment.username"
