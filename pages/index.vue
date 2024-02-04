@@ -56,8 +56,8 @@
         >
       </h4>
       <div class="text-grey">
-        A plugin for the Stream Deck which display hardware information from
-        HWiNFO. It has been downloaded <span v-html="downloads"></span> times.
+        A plugin for the Stream Deck which displays hardware information. It has
+        been downloaded <span v-html="downloads"></span> times.
       </div>
 
       <h4>
