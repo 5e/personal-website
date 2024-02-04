@@ -49,6 +49,18 @@
       </div>
 
       <h4>
+        <a
+          class="text-grey"
+          href="https://github.com/5e/streamdeck-hwinfo-plugin"
+          >streamdeck-hwinfo-plugin</a
+        >
+      </h4>
+      <div class="text-grey">
+        A plugin for the Stream Deck which display hardware information from
+        HWiNFO. It has been downloaded <span v-html="downloads"></span> times.
+      </div>
+
+      <h4>
         <a class="text-grey" href="https://github.com/5e/connected-drive-alerts"
           >connected-drive-alerts</a
         >
@@ -79,3 +91,30 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      downloads: "&nbsp;&nbsp;&nbsp;",
+    };
+  },
+
+  mounted() {
+    $fetch("https://mp-gateway.elgato.com/products?name=HWiNFO%20Reader")
+      .then((response) => {
+        let downloads = response.results[0].download_count;
+        this.downloads = 0;
+        setInterval(() => {
+          if (this.downloads < downloads) {
+            this.downloads += 1;
+          }
+        }, 10);
+      })
+      .catch((error) => {
+        console.error(error);
+        this.downloads = 200;
+      });
+  },
+};
+</script>
