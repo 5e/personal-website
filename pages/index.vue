@@ -39,7 +39,38 @@
 
     <div class="mt-10">
       <h4>Projects</h4>
-      <h4>
+
+      <div>
+        <h4>
+          <a
+            class="text-grey"
+            href="https://5e.github.io/vue-light-validator/#/"
+            >vue-light-validator</a
+          >
+        </h4>
+        <div class="text-grey">
+          A plugin for the Stream Deck which displays hardware information. It
+          has been downloaded <span v-html="downloads"></span> times.
+        </div>
+        <div ref="scrollingDiv" style="overflow: hidden; width: 100%">
+          whatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasjwhatwgatwagakdasj
+        </div>
+      </div>
+      <div>
+        <h4>
+          <a
+            class="text-grey"
+            href="https://github.com/5e/streamdeck-hwinfo-plugin"
+            >streamdeck-hwinfo-plugin</a
+          >
+        </h4>
+        <div class="text-grey">
+          A plugin for the Stream Deck which displays hardware information. It
+          has been downloaded <span v-html="downloads"></span> times.
+        </div>
+        <div></div>
+      </div>
+      <h4 class="mt-15">
         <a class="text-grey" href="https://5e.github.io/vue-light-validator/#/"
           >vue-light-validator</a
         >
@@ -115,6 +146,28 @@ export default {
         console.error(error);
         this.downloads = 200;
       });
+  },
+
+  setup() {
+    const scrollingDiv = ref(null);
+
+    const scrollHandler = () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      scrollingDiv.value.scrollLeft = winScroll;
+    };
+
+    onMounted(() => {
+      window.addEventListener("scroll", scrollHandler);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener("scroll", scrollHandler);
+    });
+
+    return {
+      scrollingDiv,
+    };
   },
 };
 </script>
