@@ -19,7 +19,7 @@
         <div
           class="bg-grey-darken-3 rounded-lg pa-3 mr-4"
           style="width: 300px"
-          v-for="x in 4"
+          v-for="card in cards"
         >
           <div class="d-inline-flex" style="width: 100%">
             <div style="width: 50%">
@@ -27,11 +27,11 @@
             </div>
             <div style="width: 50%" class="text-right text-grey">
               BMW M140i<br />
-              <span style="text-wrap: nowrap">{{ vehicleStatus[x - 1] }}</span>
+              <span style="text-wrap: nowrap">{{ card.vehicleStatus }}</span>
             </div>
           </div>
           <div class="rounded-lg" style="overflow: hidden; height: 120px">
-            <img width="300" :src="'/staticmap' + x + '.jpg'" />
+            <img width="300" :src="card.imgName" />
           </div>
         </div>
       </div>
@@ -43,26 +43,44 @@
 export default {
   data() {
     return {
-      vehicleStatus: ["Locked", "Window open", "Boot open", "Unlocked"],
-      time: ["11:37", "12:54", "15:53", "17:22"],
+      cards: [
+        {
+          vehicleStatus: "Locked",
+          imgName: "/staticmap1.jpg",
+        },
+        {
+          vehicleStatus: "Window open",
+          imgName: "/staticmap2.jpg",
+        },
+        {
+          vehicleStatus: "Boot open",
+          imgName: "/staticmap3.jpg",
+        },
+        {
+          vehicleStatus: "Unlocked",
+          imgName: "/staticmap4.jpg",
+        },
+        {
+          vehicleStatus: "Locked",
+          imgName: "/staticmap1.jpg",
+        },
+      ],
+      scrollingDiv: null,
     };
   },
-  setup() {
-    const scrollingDiv = ref(null);
-    const scrollHandler = () => {
+  methods: {
+    scrollHandler() {
       const winScroll =
         document.body.scrollTop || document.documentElement.scrollTop;
-      scrollingDiv.value.scrollLeft = winScroll / 3;
-    };
-    onMounted(() => {
-      window.addEventListener("scroll", scrollHandler);
-    });
-    onUnmounted(() => {
-      window.removeEventListener("scroll", scrollHandler);
-    });
-    return {
-      scrollingDiv,
-    };
+      this.scrollingDiv.scrollLeft = winScroll;
+    },
+  },
+  mounted() {
+    this.scrollingDiv = this.$refs.scrollingDiv;
+    window.addEventListener("scroll", this.scrollHandler);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.scrollHandler);
   },
 };
 </script>

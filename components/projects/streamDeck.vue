@@ -7,7 +7,8 @@
     </h4>
     <div class="text-grey">
       A plugin for the Stream Deck which displays hardware information. It has
-      been downloaded <span v-html="downloads"></span> times.
+      been downloaded
+      <span style="font-weight: 900">{{ downloads }}</span> times.
     </div>
     <div class="mt-3">
       <svg
@@ -55,6 +56,9 @@
           {{ sensorValue }}°C
         </text>
       </svg>
+      <span class="ml-10"></span>
+      <span v-html="svgString"></span>
+      <span class="ml-10"></span>
       <svg
         height="144"
         width="144"
@@ -99,7 +103,6 @@
           {{ 100 - sensorValue }}%
         </text>
       </svg>
-      <span v-html="svgString"></span>
     </div>
   </div>
 </template>
@@ -109,7 +112,7 @@ export default {
   data() {
     return {
       scrollValue: null,
-      downloads: "&nbsp;&nbsp;&nbsp;",
+      downloads: "",
       graphHistory: [],
       svgString: "",
     };
@@ -119,7 +122,7 @@ export default {
     dashOffset() {
       this.svgString = this.generateSvg(
         "green",
-        "black",
+        "#121212",
         "GPU",
         this.sensorValue + "°C",
         32,
@@ -243,7 +246,7 @@ export default {
       })
       .catch((error) => {
         console.error(error);
-        this.downloads = 681;
+        this.downloads = 3050;
       });
   },
 };
