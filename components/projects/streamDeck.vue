@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-grey-darken-4 rounded-lg pl-3 py-3 mt-3">
+  <div class="bg-grey-darken-4 rounded-lg pl-3 py-3">
     <h4>
       <a class="text-grey" href="https://github.com/5e/streamdeck-hwinfo-plugin"
         >streamdeck-hwinfo-plugin</a
@@ -10,55 +10,8 @@
       been downloaded
       <span style="font-weight: 900">{{ downloads }}</span> times.
     </div>
-    <div class="mt-3">
-      <svg
-        height="144"
-        width="144"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-      >
-        <path
-          id="arc1"
-          fill="none"
-          stroke="#626464"
-          stroke-width="20"
-          d="M 117.96266658713867 112.56725658119235 A 60 60 0 1 0 26.037333412861322 112.56725658119235"
-        ></path>
-        <path
-          id="arc1"
-          fill="none"
-          stroke="green"
-          :stroke-dashoffset="dashOffset"
-          :stroke-dasharray="dashArray + ' 1000'"
-          stroke-width="20"
-          d="M 117.96266658713867 112.56725658119235 A 60 60 0 1 0 26.037333412861322 112.56725658119235"
-        ></path>
-        <text
-          x="72"
-          y="130"
-          font-family="inter"
-          font-size="32"
-          stroke="grey"
-          fill="grey"
-          text-anchor="middle"
-        >
-          GPU
-        </text>
-        <text
-          x="72"
-          y="83"
-          font-family="inter"
-          font-size="32"
-          stroke="white"
-          fill="white"
-          text-anchor="middle"
-        >
-          {{ sensorValue }}°C
-        </text>
-      </svg>
-      <span class="ml-10"></span>
-      <span v-html="svgString"></span>
-      <span class="ml-10"></span>
+    <div class="mt-3 d-flex justify-space-evenly">
+      <div v-html="svgString"></div>
       <svg
         height="144"
         width="144"
@@ -76,7 +29,7 @@
           id="arc1"
           fill="none"
           stroke="#626464"
-          :stroke-dasharray="dashArray + ' 1000'"
+          :stroke-dasharray="getGaugePixels(sensorReading) + ' 1000'"
           stroke-width="20"
           d="M 117.96266658713867 112.56725658119235 A 60 60 0 1 0 26.037333412861322 112.56725658119235"
         ></path>
@@ -100,7 +53,7 @@
           fill="white"
           text-anchor="middle"
         >
-          {{ 100 - sensorValue }}%
+          {{ 100 - sensorReading }}%
         </text>
       </svg>
     </div>
@@ -111,41 +64,12 @@
 export default {
   data() {
     return {
-      scrollValue: null,
+      sensorReading: 50,
       downloads: "",
       graphHistory: [],
       svgString: "",
     };
   },
-
-  computed: {
-    dashOffset() {
-      this.svgString = this.generateSvg(
-        "green",
-        "#121212",
-        "GPU",
-        this.sensorValue + "°C",
-        32,
-        32,
-        "Inter"
-      );
-      return -273 + this.getGaugePixels(this.scrollValue);
-    },
-    dashArray() {
-      return this.getGaugePixels(this.scrollValue);
-    },
-    sensorValue() {
-      this.addSensorValue(this.scrollValue, 0, 100);
-      let value = Math.round(this.scrollValue);
-      if (value > 100) {
-        return 100;
-      } else if (value < 0) {
-        return 0;
-      }
-      return Math.round(this.scrollValue);
-    },
-  },
-
   methods: {
     getGaugePixels(sensorValue) {
       return 272 * ((sensorValue - 0) / (100 - 0));
@@ -224,12 +148,25 @@ export default {
   },
 
   mounted() {
-    const scrollHandler = () => {
-      const winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      this.scrollValue = winScroll / 7;
-    };
-    window.addEventListener("scroll", scrollHandler);
+    setInterval(() => {
+      this.sensorReading += Math.floor(Math.random() * 10 - 5);
+      if (this.sensorReading > 100) {
+        this.sensorReading = 100;
+      } else if (this.sensorReading < 0) {
+        this.sensorReading = 0;
+      }
+      this.addSensorValue(this.sensorReading, 0, 100);
+
+      this.svgString = this.generateSvg(
+        "green",
+        "#121212",
+        "GPU",
+        this.sensorReading + "°C",
+        32,
+        32,
+        "Inter"
+      );
+    }, 250);
 
     $fetch("https://mp-gateway.elgato.com/products?name=HWiNFO%20Reader")
       .then((response) => {
@@ -237,12 +174,12 @@ export default {
         this.downloads = 0;
         let intervalId = setInterval(() => {
           if (this.downloads < downloads) {
-            this.downloads += 9;
+            this.downloads += 53;
           } else {
             this.downloads = downloads;
             clearInterval(intervalId);
           }
-        }, 10);
+        }, 30);
       })
       .catch((error) => {
         console.error(error);

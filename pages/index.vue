@@ -40,11 +40,11 @@
     <div class="mt-10">
       <h4 class="mb-2">Projects</h4>
 
-      <ProjectsVueLightValidator />
-
       <ProjectsStreamDeck />
 
       <ProjectsConnectedDriveAlerts />
+
+      <ProjectsVueLightValidator />
 
       <div class="bg-grey-darken-4 rounded-lg pl-3 py-3 mt-3">
         <h4>
