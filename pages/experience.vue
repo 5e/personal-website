@@ -25,7 +25,7 @@
             >{{ item.text }}
             <br />
             <span style="font-size: 0.75rem">
-              {{ item.description }}
+              {{ stringDate(item.yearStarted) }}
             </span>
           </span>
           <v-spacer></v-spacer>
@@ -39,43 +39,48 @@
 </template>
 
 <script setup>
+function stringDate(input) {
+  const startDate = new Date(input);
+  const now = new Date();
+  const years = now.getFullYear() - startDate.getFullYear();
+  return `${years} years`;
+}
+
 let items = [
   {
     text: "Vue.js",
     icon: "mdi-vuejs",
-    description: "4 years",
+    yearStarted: "2019-09-09",
   },
   {
     text: "Vuetify",
     icon: "mdi-vuetify",
-    description: "4 years",
+    yearStarted: "2019-09-09",
   },
   {
     text: "C#",
     icon: "mdi-dot-net",
-    description: "4 years",
+    yearStarted: "2019-09-09",
   },
   {
     text: "SQL",
     icon: "mdi-database-search",
-    description: "5 years",
+    yearStarted: "2018-09-09",
   },
   {
     text: "REST APIs",
     icon: "mdi-cloud-braces",
-    description: "4 years",
+    yearStarted: "2019-09-09",
   },
   {
     text: "Python",
     icon: "mdi-language-python",
-    description: "2 years",
+    yearStarted: "2022-01-01",
   },
   {
     text: "JavaScript",
     icon: "mdi-language-javascript",
-    description: "5 years",
+    yearStarted: "2018-01-01",
   },
 ];
 </script>
-
-<style scoped></style>
