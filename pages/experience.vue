@@ -42,7 +42,7 @@
 let items = [
   {
     text: "Vue.js",
-    icon: "fa:fas fa-brands fa-vuejs",
+    icon: "mdi-vuejs",
     description: "4 years",
   },
   {
@@ -72,7 +72,7 @@ let items = [
   },
   {
     text: "JavaScript",
-    icon: "fa:fas fa-brands fa-square-js",
+    icon: "mdi-language-javascript",
     description: "5 years",
   },
 ];
