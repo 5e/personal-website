@@ -38,56 +38,39 @@
     </div>
 
     <div class="mt-10">
-      <h4>Projects</h4>
-      <h4>
-        <a class="text-grey" href="https://5e.github.io/vue-light-validator/#/"
-          >vue-light-validator</a
-        >
-      </h4>
-      <div class="text-grey">
-        Light Vue 3 directive for easy form validation using no dependencies
+      <h4 class="mb-2">Projects</h4>
+
+      <ProjectsStreamDeck />
+
+      <ProjectsConnectedDriveAlerts />
+
+      <ProjectsVueLightValidator />
+
+      <div class="bg-grey-darken-4 rounded-lg pl-3 py-3 mt-3">
+        <h4>
+          <a
+            class="text-grey"
+            href="https://addons.mozilla.org/en-GB/firefox/addon/shorts-redirector/"
+            >shorts-redirector</a
+          >
+        </h4>
+        <div class="text-grey">
+          Firefox extension to convert YouTube Shorts into normal videos
+        </div>
       </div>
 
-      <h4>
-        <a
-          class="text-grey"
-          href="https://github.com/5e/streamdeck-hwinfo-plugin"
-          >streamdeck-hwinfo-plugin</a
-        >
-      </h4>
-      <div class="text-grey">
-        A plugin for the Stream Deck which displays hardware information. It has
-        been downloaded <span v-html="downloads"></span> times.
+      <div class="bg-grey-darken-4 rounded-lg pl-3 py-3 mt-3">
+        <h4>
+          <a class="text-grey" href="https://github.com/5e/personal-website"
+            >personal-website</a
+          >
+        </h4>
+        <div class="text-grey">
+          The website you're reading now, it's open source
+        </div>
       </div>
 
-      <h4>
-        <a class="text-grey" href="https://github.com/5e/connected-drive-alerts"
-          >connected-drive-alerts</a
-        >
-      </h4>
-      <div class="text-grey">
-        Adding vehicle notifications to the BMW Connected Drive app
-      </div>
-
-      <h4>
-        <a
-          class="text-grey"
-          href="https://addons.mozilla.org/en-GB/firefox/addon/shorts-redirector/"
-          >shorts-redirector</a
-        >
-      </h4>
-      <div class="text-grey">
-        Firefox extension to convert YouTube Shorts into normal videos
-      </div>
-
-      <h4>
-        <a class="text-grey" href="https://github.com/5e/personal-website"
-          >personal-website</a
-        >
-      </h4>
-      <div class="text-grey">
-        The website you're reading now, it's open source
-      </div>
+      <div style="height: 200px"></div>
     </div>
   </div>
 </template>
@@ -95,26 +78,8 @@
 <script>
 export default {
   data() {
-    return {
-      downloads: "&nbsp;&nbsp;&nbsp;",
-    };
+    return {};
   },
-
-  mounted() {
-    $fetch("https://mp-gateway.elgato.com/products?name=HWiNFO%20Reader")
-      .then((response) => {
-        let downloads = response.results[0].download_count;
-        this.downloads = 0;
-        setInterval(() => {
-          if (this.downloads < downloads) {
-            this.downloads += 1;
-          }
-        }, 10);
-      })
-      .catch((error) => {
-        console.error(error);
-        this.downloads = 200;
-      });
-  },
+  mounted() {},
 };
 </script>
