@@ -162,7 +162,7 @@ export default {
 
   mounted() {
     setInterval(() => {
-      this.sensorReading += Math.floor(Math.random() * 10 - 5);
+      this.sensorReading += Math.floor(Math.random() * 11 - 5);
       if (this.sensorReading > 100) {
         this.sensorReading = 100;
       } else if (this.sensorReading < 0) {
