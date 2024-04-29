@@ -147,6 +147,19 @@ export default {
     },
   },
 
+  created() {
+    this.addSensorValue(this.sensorReading, 0, 100);
+    this.svgString = this.generateSvg(
+      "green",
+      "#121212",
+      "GPU",
+      this.sensorReading + "°C",
+      32,
+      32,
+      "Inter"
+    );
+  },
+
   mounted() {
     setInterval(() => {
       this.sensorReading += Math.floor(Math.random() * 10 - 5);
