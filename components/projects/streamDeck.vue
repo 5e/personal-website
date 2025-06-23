@@ -185,9 +185,11 @@ export default {
       .then((response) => {
         let downloads = response.results[0].download_count;
         this.downloads = 0;
+        const duration = 1200;
+        const step = Math.ceil(downloads / (duration / 30));
         let intervalId = setInterval(() => {
-          if (this.downloads < downloads) {
-            this.downloads += 53;
+          if (this.downloads + step < downloads) {
+            this.downloads += step;
           } else {
             this.downloads = downloads;
             clearInterval(intervalId);

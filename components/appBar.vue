@@ -1,10 +1,14 @@
 <template>
-  <div class="d-flex justify-center mt-2 mb-3">
-    <div class="bg-grey-darken-4 elevation-0 rounded-xl" style="width: 100%">
+  <div class="d-flex justify-center neumorphic mt-5 mb-5">
+    <div style="width: 100%">
       <NuxtLink to="/">
         <v-btn
           size="large"
-          :class="{ 'elevation-0': true, 'text-green': $route.fullPath == '/' }"
+          :class="{
+            'elevation-0': true,
+            transparent: true,
+            'text-green': $route.fullPath == '/',
+          }"
           icon="mdi-home-outline"
         ></v-btn>
       </NuxtLink>
@@ -13,6 +17,7 @@
           size="large"
           :class="{
             'elevation-0': true,
+            transparent: true,
             'text-green': $route.fullPath == '/experience',
           }"
           icon="mdi-briefcase-outline"
@@ -23,6 +28,7 @@
           size="large"
           :class="{
             'elevation-0': true,
+            transparent: true,
             'text-green': $route.fullPath == '/education',
           }"
           icon="mdi-school-outline"
@@ -33,6 +39,7 @@
           size="large"
           :class="{
             'elevation-0': true,
+            transparent: true,
             'text-green': $route.fullPath.includes('/blog'),
           }"
           icon="mdi-post-outline"
@@ -146,6 +153,16 @@ onMounted(() => {
 .pulsing {
   color: green;
   animation: pulse 3s infinite;
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.neumorphic {
+  border-radius: 19px;
+  background: #121212;
+  box-shadow: 7px 7px 14px #070707, -7px -7px 14px #1d1d1d;
 }
 
 @keyframes pulse {
