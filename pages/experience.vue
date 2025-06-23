@@ -4,12 +4,12 @@
     <div class="mb-8">
       Mad Devs LTD <i>(2024 - present)</i>
       <p class="text-grey">
-        Software developer at Mad Devs building cloud-based platforms for
-        automotive dealerships. Worked on iTrackLEADS and iStoreDOCS, creating
-        new user-facing features, ensuring compliance, and integrating with
-        third-party systems. Solutions support 1,500+ dealerships globally,
-        streamlining sales and after-sales operations. Working in an agile
-        environment using MySQL, MongoDB, Vue.js, C#, and Amazon AWS.
+        Building cloud-based platforms for automotive dealerships such as
+        iTrackLEADS and iStoreDOCS. Creating new user-facing features, ensuring
+        compliance, and integrating with third-party systems. Solutions support
+        1,500+ dealerships globally, streamlining sales and after-sales
+        operations. Working in an agile environment using MySQL, MongoDB,
+        Vue.js, C#, and Amazon AWS.
       </p>
     </div>
     <div>
