@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     transpile: ["vuetify"],
   },
   modules: [
-    "@nuxt/content",
     "@nuxtjs/google-fonts",
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
