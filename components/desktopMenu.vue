@@ -44,7 +44,7 @@ function updateActiveSectionOnScroll() {
     const el = document.getElementById(sections[i].id);
     if (el) {
       const rect = el.getBoundingClientRect();
-      if (rect.bottom > window.innerHeight * 0.4) {
+      if (rect.bottom > window.innerHeight * 0.38) {
         currentHash.value = sections[i].hash;
         found = true;
         break;
