@@ -6,7 +6,9 @@
         {{ props.title
         }}<span v-if="props.company"> • {{ props.company }}</span>
         <span v-if="props.hyperlink">
-          <v-icon size="x-small" class="ml-1">mdi-arrow-top-right</v-icon>
+          <v-icon size="x-small" class="ml-1" style="margin-bottom: 1px"
+            >mdi-arrow-top-right</v-icon
+          >
         </span>
       </div>
       <p class="text-grey-lighten-1" style="font-size: 0.875rem">
