@@ -85,6 +85,5 @@ html {
     transparent 60%,
     transparent 100%
   );
-  transition: left 0.05s, top 0.05s;
 }
 </style>
