@@ -77,14 +77,42 @@ function openGithub() {
 }
 
 const spotifyStatus = ref(null);
+const songProgress = ref(0);
+
+let timerInterval = null;
+
+function smoothProgress() {
+  timerInterval = setInterval(() => {
+    spotifyStatus.value.progress_ms += 1000;
+    songProgress.value =
+      (spotifyStatus.value.progress_ms / spotifyStatus.value.item.duration_ms) *
+      100;
+  }, 1000);
+}
 
 async function getSpotifyStatus() {
   await $fetch("https://cloudflare-spotify.5egt.workers.dev/song", {
     async onResponse({ request, response, options }) {
       if (response.status != 204) {
         spotifyStatus.value = response._data;
+
+        songProgress.value =
+          (spotifyStatus.value.progress_ms /
+            spotifyStatus.value.item.duration_ms) *
+          100;
+
+        if (!spotifyStatus.value.is_playing) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          return;
+        }
+
+        if (timerInterval == null) {
+          smoothProgress();
+        }
       } else {
         spotifyStatus.value = null;
+        clearInterval(timerInterval);
       }
     },
   });
@@ -107,13 +135,6 @@ const getSongImage = computed(() => {
     image = "https://i.ibb.co/3J6LnGP/c656a7X.png";
   }
   return image;
-});
-
-const songProgress = computed(() => {
-  return (
-    (spotifyStatus.value.progress_ms / spotifyStatus.value.item.duration_ms) *
-    100
-  );
 });
 
 onMounted(() => {
