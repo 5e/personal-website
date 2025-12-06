@@ -8,7 +8,7 @@
     >
     <v-icon class="mr-2 hover" size="large" @click="mailTo">mdi-email</v-icon>
 
-    <v-tooltip location="bottom">
+    <v-tooltip location="bottom" interactive>
       <template v-slot:activator="{ props }">
         <v-icon
           size="large"
@@ -54,7 +54,12 @@
                 </div>
               </div>
             </div>
-            <v-img class="ml-4" :width="64" :src="getSongImage"></v-img>
+            <v-img
+              class="ml-4 hover"
+              :width="64"
+              :src="getSongImage"
+              @click="openSong"
+            ></v-img>
           </div>
         </div>
       </div>
@@ -136,6 +141,10 @@ const getSongImage = computed(() => {
   }
   return image;
 });
+
+function openSong() {
+  window.open(spotifyStatus.value.item.external_urls.spotify, "_blank");
+}
 
 onMounted(() => {
   setInterval(() => {
