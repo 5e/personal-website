@@ -176,5 +176,6 @@ onBeforeMount(() => {
 
 .skills-wrapper .card-hover:hover {
   opacity: 1;
+  transition: opacity 0s;
 }
 </style>

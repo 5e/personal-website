@@ -7,7 +7,7 @@
       style="position: relative; z-index: 1"
       v-if="mounted"
     >
-      <v-col cols="12" md="4" offset-md="1">
+      <v-col cols="12" md="3" offset-md="2">
         <div :class="{ 'fixed-left-col': mdAndUp === true }">
           <left-side />
           <desktop-menu class="mt-12" v-if="mdAndUp === true" />
@@ -16,7 +16,7 @@
         </div>
       </v-col>
 
-      <v-col cols="12" md="6" class="mt-6 mt-md-0">
+      <v-col cols="12" md="5" class="mt-6 mt-md-0">
         <right-side />
       </v-col>
     </v-row>
