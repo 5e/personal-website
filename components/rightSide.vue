@@ -28,28 +28,33 @@
       hiking, travelling, or exploring new places.
     </div>
 
-    <div style="margin-top: 120px" id="experience">
+    <div style="margin-top: 120px" id="experience" class="skills-wrapper">
       <work-card
         v-for="work in workExperience"
+        class="card-hover"
         :key="work.title"
         v-bind="work"
       />
-
-      <skills-list style="margin-top: 120px" />
     </div>
 
-    <div style="margin-top: 120px" id="education">
+    <div style="margin-top: 120px" id="experience">
+      <skills-list />
+    </div>
+
+    <div style="margin-top: 120px" id="education" class="skills-wrapper">
       <work-card
         v-for="work in educationExperience"
         :key="work.title"
         v-bind="work"
+        class="card-hover"
       />
     </div>
 
-    <div style="margin-top: 120px" id="projects">
+    <div style="margin-top: 120px" id="projects" class="skills-wrapper">
       <work-card
         v-for="work in projectExperience"
         :key="work.title"
+        class="card-hover"
         v-bind="work"
       />
     </div>
@@ -159,3 +164,17 @@ onBeforeMount(() => {
     });
 });
 </script>
+
+<style scoped>
+.card-hover {
+  transition: opacity 0.3s;
+}
+
+.skills-wrapper:hover .card-hover {
+  opacity: 0.4;
+}
+
+.skills-wrapper .card-hover:hover {
+  opacity: 1;
+}
+</style>
