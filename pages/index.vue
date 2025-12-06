@@ -44,11 +44,7 @@ onMounted(() => {
 });
 </script>
 
-<style>
-html {
-  font-family: Inter, sans-serif;
-  scroll-behavior: smooth; /* for anchor links */
-}
+<style scoped>
 .bg-color {
   background: #0f2027; /* fallback for old browsers */
   background: -webkit-linear-gradient(
