@@ -1,7 +1,7 @@
 <template>
   <div>
     <a
-      href="#about"
+      href="#"
       :class="['custom-anchor', currentHash === '#about' ? 'active' : '']"
       >About</a
     >
@@ -70,14 +70,14 @@ onUnmounted(() => {
 });
 </script>
 
-<style>
+<style scoped>
 .custom-anchor {
   color: inherit;
   text-decoration: none;
   display: block;
   transition: color 0.2s;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 2.667;
   letter-spacing: 0.1666666667em;
   text-transform: uppercase;

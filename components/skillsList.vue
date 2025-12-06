@@ -2,16 +2,18 @@
   <div>
     <v-row>
       <v-col cols="3">
-        <div class="text-overline">Skills</div>
+        <div class="timeline text-grey pt-1">Skills</div>
       </v-col>
       <v-col cols="9">
         <v-row>
           <v-col :cols="4" v-for="(item, index) in items" :key="item.text">
-            <div>
+            <div class="d-flex align-center">
               <v-icon large class="mr-2">{{ item.icon }}</v-icon>
-              <strong>{{ item.text }}</strong>
-              <div class="text-grey-lighten-1 text-caption">
-                {{ stringDate(item.yearStarted) }}
+              <div>
+                <div>{{ item.text }}</div>
+                <div class="text-grey-lighten-1 timeline">
+                  {{ stringDate(item.yearStarted) }}
+                </div>
               </div>
             </div>
           </v-col>

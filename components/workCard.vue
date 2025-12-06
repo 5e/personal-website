@@ -1,7 +1,13 @@
 <template>
-  <v-row class="mb-6" @click="openHyperlink()">
-    <v-col cols="3" class="text-overline"> {{ props.timeline }} </v-col>
-    <v-col cols="9" :class="props.hyperlink ? 'hover' : ''">
+  <v-row class="mb-6">
+    <v-col cols="3" class="timeline text-grey pt-4">
+      {{ props.timeline }}
+    </v-col>
+    <v-col
+      cols="9"
+      :class="props.hyperlink ? 'hover' : ''"
+      @click="openHyperlink()"
+    >
       <div class="font-weight-medium">
         {{ props.title
         }}<span v-if="props.company"> • {{ props.company }}</span>

@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   ],
   googleFonts: {
     families: {
-      Inter: [400, 500, 700],
+      Inter: [400, 500, 600, 700],
     },
   },
   vite: {

@@ -61,7 +61,7 @@ let workExperience = [
   {
     title: "Lead Developer",
     company: "Mad Devs LTD",
-    timeline: "2024 - Present",
+    timeline: "2024 — Present",
     tags: ["Vue.js", "MySQL", "MongoDB", "C#", "AWS", "JavaScript"],
     hyperlink: "https://www.maddevs.co.uk/",
     description:
@@ -70,7 +70,7 @@ let workExperience = [
   {
     title: "Software Engineer",
     company: "Welsh Revenue Authority",
-    timeline: "2019 - 2024",
+    timeline: "2019 — 2024",
     tags: ["Vue.js", "Azure", "C#", "MS SQL", "JavaScript"],
     hyperlink: "https://www.gov.wales/welsh-revenue-authority",
     description:
@@ -82,7 +82,7 @@ let educationExperience = [
   {
     title: "BSc (Hons) in Digital and Technology Solutions",
     company: "University of South Wales",
-    timeline: "2019 - 2024",
+    timeline: "2019 — 2024",
     description:
       "Graduated with First Class Honours and awarded Best Undergraduate Performance, recognized for academic excellence, dedication, and consistently high achievement throughout my degree.",
   },
@@ -97,7 +97,7 @@ let educationExperience = [
   {
     title: "A-Levels in Maths, Further Maths, Computer Science",
     company: "Coleg Gwent",
-    timeline: "2016 - 2019",
+    timeline: "2016 — 2019",
     description:
       "Completed A-Levels in Maths, Further Maths, and Computer Science, building a strong foundation in analytical thinking, problem-solving, and programming skills.",
   },

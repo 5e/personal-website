@@ -16,4 +16,11 @@
 .page-leave-to {
   opacity: 0;
 }
+
+.timeline {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
 </style>
