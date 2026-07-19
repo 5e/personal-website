@@ -33,6 +33,8 @@ function years(input) {
     line-height: 2;
     color: var(--ink-soft);
     margin: 0;
+    padding-top: 1.05rem;
+    border-top: 1px solid var(--rule);
   }
   .yr {
     color: var(--ink-faint);

@@ -195,6 +195,10 @@ onMounted(async () => {
   max-width: 32em;
   margin: 0;
 }
+.lede:first-of-type {
+  padding-top: 1.05rem;
+  border-top: 1px solid var(--rule);
+}
 .lede strong {
   color: var(--ink);
   font-weight: 600;
