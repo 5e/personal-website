@@ -64,7 +64,7 @@
 <script setup>
 const workExperience = [
   {
-    heading: "Lead Developer - Mad Devs LTD",
+    heading: "Lead Developer · Mad Devs LTD",
     org: "maddevs.co.uk",
     orgHref: "https://www.maddevs.co.uk/",
     period: "2024 - Present",
@@ -73,7 +73,7 @@ const workExperience = [
     tags: ["Vue.js", "MySQL", "MongoDB", "C#", "AWS", "JavaScript"],
   },
   {
-    heading: "Software Engineer - Welsh Revenue Authority",
+    heading: "Software Engineer · Welsh Revenue Authority",
     org: "gov.wales",
     orgHref: "https://www.gov.wales/welsh-revenue-authority",
     period: "2019 - 2024",
@@ -192,7 +192,7 @@ onMounted(async () => {
   font-size: 1.06rem;
   line-height: 1.75;
   color: var(--ink-soft);
-  max-width: 32em;
+  width: 100%;
   margin: 0;
 }
 .lede:first-of-type {

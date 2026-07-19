@@ -2,9 +2,18 @@
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  <ThemeToggle class="global-toggle" />
 </template>
 
 <style>
+  .global-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 50;
+    background: var(--bg);
+  }
+
   :root {
     --bg: #faf9f6;
     --surface: #f1efe9;

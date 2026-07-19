@@ -121,8 +121,6 @@ onUnmounted(() => {
 <style scoped>
 .side-foot {
   margin-top: 1.6rem;
-  padding-bottom: 1.6rem;
-  border-bottom: 1px solid var(--rule);
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
@@ -131,8 +129,6 @@ onUnmounted(() => {
   .side-foot {
     margin-top: auto;
     padding-top: 2.4rem;
-    padding-bottom: 0;
-    border-bottom: none;
     gap: 0.5rem;
   }
 }

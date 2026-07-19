@@ -1,6 +1,5 @@
 <template>
   <aside class="sidebar">
-    <ThemeToggle class="theme-btn-pos" />
     <h1>Dominik Pawlowski</h1>
     <div class="role">Full Stack Developer</div>
     <SideNav />
@@ -26,16 +25,6 @@
       padding: 3.2rem 0 2rem 1.5rem;
       max-width: none;
       margin: 0;
-    }
-  }
-
-  .theme-btn-pos {
-    align-self: flex-end;
-    margin-bottom: 1.4rem;
-  }
-  @media (min-width: 860px) {
-    .theme-btn-pos {
-      margin-bottom: 2.2rem;
     }
   }
 
