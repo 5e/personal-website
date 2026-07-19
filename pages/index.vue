@@ -170,18 +170,21 @@ onMounted(async () => {
 }
 @media (min-width: 860px) {
   .grid {
-    grid-template-columns: 230px 1fr;
+    grid-template-columns: 231px 1fr;
     column-gap: 3.5rem;
   }
 }
 
 .content {
+  width: 100%;
   padding: 2.4rem 1.5rem 6rem;
   max-width: 640px;
+  margin: 0 auto;
 }
 @media (min-width: 860px) {
   .content {
     padding: 3.2rem 0 8rem;
+    margin: 0;
   }
 }
 

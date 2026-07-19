@@ -10,8 +10,12 @@
 
 <style scoped>
   .sidebar {
-    padding: 2.4rem 1.5rem 2rem;
-    position: relative;
+    width: 100%;
+    padding: 2rem 1.5rem 1.6rem;
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
   }
   @media (min-width: 860px) {
     .sidebar {
@@ -20,22 +24,18 @@
       align-self: start;
       height: 100vh;
       padding: 3.2rem 0 2rem 1.5rem;
-      display: flex;
-      flex-direction: column;
+      max-width: none;
+      margin: 0;
     }
   }
 
   .theme-btn-pos {
-    position: absolute;
-    top: 2.4rem;
-    right: 1.5rem;
+    align-self: flex-end;
+    margin-bottom: 1.4rem;
   }
   @media (min-width: 860px) {
     .theme-btn-pos {
-      position: static;
       margin-bottom: 2.2rem;
-      align-self: flex-end;
-      margin-right: 1.5rem;
     }
   }
 

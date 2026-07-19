@@ -42,10 +42,15 @@ onUnmounted(() => {
 
 <style scoped>
   .side-nav {
-    margin-top: 2.6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
+    display: none;
+  }
+  @media (min-width: 860px) {
+    .side-nav {
+      margin-top: 2.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
   }
   .side-nav a {
     font-size: 0.72rem;
