@@ -1,7 +1,6 @@
 <template>
   <div class="side-foot">
     <div class="link-row">
-      <a class="link" href="mailto:dominik@pawlowski.app">Email</a>
       <a
         class="link"
         href="https://github.com/5e"
