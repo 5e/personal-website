@@ -151,10 +151,11 @@ const projectExperience = computed(() => [
 
 onMounted(async () => {
   try {
-    const response = await $fetch(
-      "https://mp-gateway.elgato.com/products?name=HWiNFO%20Reader",
-    );
-    streamdeckCount.value = response.results[0].download_count;
+    // const response = await $fetch(
+    //   "https://mp-gateway.elgato.com/products?name=HWiNFO%20Reader",
+    // );
+    // streamdeckCount.value = response.results[0].download_count;
+    streamdeckCount.value = 25000;
   } catch {
     streamdeckCount.value = 20513;
   }

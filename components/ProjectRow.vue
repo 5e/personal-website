@@ -1,10 +1,13 @@
 <template>
   <div class="proj" ref="rowEl">
-    <a class="name" :href="href" target="_blank" rel="noopener">{{ name }}<span class="arrow">↗</span></a>
+    <a class="name" :href="href" target="_blank" rel="noopener"
+      >{{ name }}<span class="arrow">↗</span></a
+    >
     <p>
       {{ description }}
       <template v-if="count !== null">
-        {{ countPrefix }} <span class="count mono">{{ formattedCount }}</span> {{ countSuffix }}
+        {{ countPrefix }} <span class="count mono">{{ formattedCount }}+</span>
+        {{ countSuffix }}
       </template>
     </p>
   </div>
@@ -28,7 +31,9 @@ let observer = null;
 
 function animateTo(target) {
   const start = displayCount.value;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
   if (reduceMotion || start === target) {
     displayCount.value = target;
     return;
@@ -51,7 +56,7 @@ watch(
   ([count, entered]) => {
     if (count !== null && entered) animateTo(count);
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 onMounted(() => {
@@ -64,7 +69,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.4 }
+    { threshold: 0.4 },
   );
   if (rowEl.value) observer.observe(rowEl.value);
 });
@@ -74,54 +79,56 @@ onUnmounted(() => {
   observer?.disconnect();
 });
 
-const formattedCount = computed(() => displayCount.value.toLocaleString("en-GB"));
+const formattedCount = computed(() =>
+  displayCount.value.toLocaleString("en-GB"),
+);
 </script>
 
 <style scoped>
+.proj {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.4rem;
+  padding: 1.05rem 0;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.name {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.name:hover {
+  color: var(--accent);
+}
+.arrow {
+  display: inline-block;
+  transition: transform 0.18s ease;
+  margin-left: 0.15em;
+  color: var(--ink-faint);
+}
+.name:hover .arrow {
+  transform: translate(2px, -2px);
+  color: var(--accent);
+}
+p {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--ink-faint);
+  max-width: 22em;
+  line-height: 1.55;
+}
+.count {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+@media (max-width: 560px) {
   .proj {
-    display: flex;
-    justify-content: space-between;
-    gap: 1.4rem;
-    padding: 1.05rem 0;
-    border-top: 1px solid var(--rule);
-    align-items: baseline;
-    flex-wrap: wrap;
-  }
-  .name {
-    font-size: 0.98rem;
-    font-weight: 600;
-    color: var(--ink);
-  }
-  .name:hover {
-    color: var(--accent);
-  }
-  .arrow {
-    display: inline-block;
-    transition: transform 0.18s ease;
-    margin-left: 0.15em;
-    color: var(--ink-faint);
-  }
-  .name:hover .arrow {
-    transform: translate(2px, -2px);
-    color: var(--accent);
+    flex-direction: column;
   }
   p {
-    margin: 0;
-    font-size: 0.84rem;
-    color: var(--ink-faint);
-    max-width: 22em;
-    line-height: 1.55;
+    max-width: none;
   }
-  .count {
-    color: var(--ink-soft);
-    font-weight: 600;
-  }
-  @media (max-width: 560px) {
-    .proj {
-      flex-direction: column;
-    }
-    p {
-      max-width: none;
-    }
-  }
+}
 </style>
